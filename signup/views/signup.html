@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./stylesheets/resetcss.css" />
+    <link rel="stylesheet" href="./stylesheets/signup.css" />
+    <title>회원가입</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="header">
+        <h1>배민사장님광장</h1>
+      </div>
+      <div class="content">
+        <form>
+          <fieldset class="fieldset">
+            <legend class="blind">필수정보</legend>
+            <div class="section">
+              <strong class="title_field">필수정보를 입력해주세요.</strong>
+              <div class="form_row">
+                <input
+                  type="text"
+                  name="userId"
+                  value=""
+                  id="userid"
+                  class="input_txt"
+                  placeholder="아이디* (4~20자)"
+                />
+                <p class="blind msg_error">
+                  아이디를 입력해 주세요.
+                </p>
+              </div>
+              <div class="form_row">
+                <input
+                  type="password"
+                  name="userId"
+                  value=""
+                  id="userPW"
+                  class="input_txt"
+                  placeholder="비밀번호* (영문+숫자, 8~20자)"
+                />
+                <p class="blind msg_error">
+                  비밀번호를 입력해 주세요.
+                </p>
+              </div>
+              <div class="form_row">
+                <input
+                  type="password"
+                  name="retypePW"
+                  value=""
+                  id="retypePW"
+                  class="input_txt"
+                  placeholder="비밀번호 재확인*"
+                />
+                <p class="blind msg_error">
+                  비밀번호 확인을 위해 한번 더 입력해 주세요.
+                </p>
+              </div>
+              <div class="form_row flex_wrap">
+                <input
+                  type="text"
+                  name="email"
+                  value=""
+                  id="retypePW"
+                  class="input_email"
+                  placeholder="이메일 앞자리*"
+                />
+                <span class="email_at">@</span>
+                <input
+                  type="text"
+                  name="domain"
+                  value=""
+                  id="retypePW"
+                  class="input_email"
+                  placeholder="이메일 뒷자리*"
+                />
+                <p class="blind msg_error">
+                  이메일 주소를 입력해 주세요.
+                </p>
+              </div>
+              <div class="form_row" id="mail_domain">
+                <select class="input_txt">
+                  <option value="noSelected" selected>이메일 선택</option>
+                  <option value="naver.com">naver.com</option>
+                  <option value="hanmail.net">hanmail.net</option>
+                  <option value="nate.com">nate.com</option>
+                  <option value="hotmail.com">hotmail.com</option>
+                  <option value="etc">직접입력</option>
+                </select>
+              </div>
+              <div class="form_row">
+                <input
+                  type="text"
+                  name="name"
+                  value=""
+                  id="name"
+                  class="input_txt"
+                  placeholder="이름*"
+                />
+                <p class="blind msg_error">
+                  이름을 입력해 주세요.
+                </p>
+              </div>
+              <div class="form_row flex_wrap">
+                <input
+                  type="text"
+                  name="email"
+                  value=""
+                  id="retypePW"
+                  class="input_left"
+                  placeholder="휴대폰*"
+                />
+                <button class="btn_right">인증받기</button>
+              </div>
+              <ul class="form_row">
+                <li class="info">
+                  인증번호 전송은 통신사에 따라 최대 1분까지 소요될 수 있습니다.
+                </li>
+                <li class="info">
+                  인증번호가 도착하지 않을 경우 '인증번호 재전송'을 눌러주세요.
+                </li>
+              </ul>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend class="blind">선택정보</legend>
+            <div class="section">
+              <div class="check_wrap">
+                <input
+                  type="checkbox"
+                  name="status"
+                  value="all"
+                  class="blind"
+                  id="all"
+                />
+                <span class="checkbox"></span>
+                <label for="all" class="desc_option"
+                  >선택정보를 입력하시겠어요?</label
+                >
+                <a
+                  href="/#/policy/history?position=collectionAndUsageNormal"
+                  class="info"
+                >
+                  내용보기
+                </a>
+              </div>
+              <div class="form_row flex_wrap">
+                <input
+                  type="text"
+                  name="postnumber"
+                  value=""
+                  id="rpostnumber"
+                  class="input_left"
+                  placeholder="우편번호"
+                />
+                <button class="btn_right">주소찾기</button>
+              </div>
+              <div class="form_row">
+                <input
+                  type="text"
+                  name="address"
+                  value=""
+                  id="address"
+                  class="input_txt"
+                  placeholder="주소*"
+                />
+                <p class="blind msg_error">
+                  주소를 입력해 주세요.
+                </p>
+              </div>
+              <div class="form_row">
+                <input
+                  type="text"
+                  name="address_detail"
+                  value=""
+                  id="address_detail"
+                  class="input_txt"
+                  placeholder="상세주소"
+                />
+                <p class="blind msg_error">
+                  상세주소를 입력해 주세요.
+                </p>
+              </div>
+              <div class="check_wrap">
+                <input
+                  type="checkbox"
+                  name="status"
+                  value="all"
+                  class="blind"
+                  id="all"
+                />
+                <span class="checkbox"></span>
+                <label for="all" class="desc_option"
+                  >전체 약관에 동의합니다
+                </label>
+              </div>
+              <div class="check_wrap">
+                <input
+                  type="checkbox"
+                  name="status"
+                  value="all"
+                  class="blind"
+                  id="all"
+                />
+                <span class="checkbox"></span>
+                <label for="all" class="desc_option"
+                  >필수 항목에 동의합니다.</label
+                >
+                <a
+                  href="/#/policy/history?position=collectionAndUsageNormal"
+                  class="info"
+                >
+                  내용보기
+                </a>
+              </div>
+              <div class="check_wrap">
+                <input
+                  type="checkbox"
+                  name="status"
+                  value="all"
+                  class="blind"
+                  id="all"
+                />
+                <span class="checkbox"></span>
+                <label for="all" class="desc_option"
+                  >광고성 정보 수신 동의 (선택)</label
+                >
+                <a
+                  href="/#/policy/history?position=collectionAndUsageNormal"
+                  class="info"
+                >
+                  내용보기
+                </a>
+              </div>
+              <div class="form_row">
+                <p class="info">
+                  만 14세 이상 회원만 가입 가능합니다.
+                  <a
+                    href="/#/policy/history?position=collectionAndUsageNormal"
+                    class="info"
+                  >
+                    내용보기
+                  </a>
+                </p>
+              </div>
+              <div class="form_row">
+                <button class="button_signup">가입완료</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
