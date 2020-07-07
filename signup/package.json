@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "babel-node ./bin/www",
+    "nodemon": "nodemon --ignore 'db.json'",
     "test": "jest"
   },
   "dependencies": {
