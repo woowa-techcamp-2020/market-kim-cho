@@ -1,0 +1,16 @@
+.wrap {
+  width: 400px;
+  height: 200px;
+  padding: 10px 25px;
+  border: 1px solid black;
+}
+.btn_login {
+  display: block;
+  background-color: aqua;
+  height: 100px;
+  width: 100%;
+  color: white;
+}
+.link {
+  float: right;
+}
