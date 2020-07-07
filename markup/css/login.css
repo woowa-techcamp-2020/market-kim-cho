@@ -1,0 +1,63 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: aqua;
+}
+
+.login_form {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login_form .section {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 400px;
+}
+
+.login_form .section input {
+  padding: 0 5px 0 5px;
+  border-width: 1px;
+  width: inherit;
+  height: 40px;
+}
+
+.login_form .down_function {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.login_form .down_function .sign {
+  display: flex;
+  flex-direction: row;
+}
+
+.login_form .down_function .checkbox {
+  display: inline;
+}
+
+.login_form .login {
+  margin-top: 20px;
+  padding: 5px;
+}
+
+.login_form .login button {
+  padding: 5px;
+  width: 400px;
+  height: 50px;
+
+  background-color: blue;
+  color: white;
+  font-size: 1.5rem;
+}
