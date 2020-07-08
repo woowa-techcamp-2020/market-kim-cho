@@ -3,6 +3,7 @@ import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
+import initializeDb from "./db/dbInitializor";
 
 const indexRouter = require("./routes/index");
 const completeRouter = require("./routes/complete");
@@ -10,7 +11,7 @@ const loginRouter = require("./routes/login");
 const signupRouter = require("./routes/signup");
 
 const app = express();
-
+initializeDb();
 // view 경로 설정
 app.set("views", path.join(__dirname, "views"));
 
