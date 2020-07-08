@@ -84,11 +84,12 @@ body {
   display: inline-block;
   width: 22px;
   height: 22px;
-  background-image: url("image/ico_checkbox_off.png");
+  background-image: url("/image/ico_checkbox_off.png");
+  border: 1px solid #bbc0cd;
   vertical-align: middle;
 }
-.checked {
-  background-image: url("image/ico_checkbox_on.png");
+input[type="checkbox"]:checked + .checkbox {
+  background-image: url("/image/ico_checkbox_on.png");
 }
 .check_wrap {
   margin-right: 25px;
@@ -117,4 +118,12 @@ body {
 }
 .error_input {
   border-color: #f52926;
+}
+
+.disabled input,
+.disabled button {
+  pointer-events: none;
+  background-color: #eee;
+  color: #555;
+  opacity: 1;
 }

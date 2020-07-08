@@ -197,3 +197,10 @@ elPhone.addEventListener("blur", (e) => {
     btnRight.classList.add("btn_act");
   }
 });
+
+const elOptionInfo = document.getElementById("option_check");
+elOptionInfo.addEventListener("click", (e) => {
+  const { target } = e;
+  const elSection = target.closest(".section");
+  elSection.classList.toggle("disabled");
+});

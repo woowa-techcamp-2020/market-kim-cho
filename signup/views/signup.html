@@ -135,18 +135,16 @@
           </fieldset>
           <fieldset>
             <legend class="blind">선택정보</legend>
-            <div class="section">
+            <div class="section disabled">
               <div class="check_wrap">
                 <input
                   type="checkbox"
                   name="status"
-                  value="all"
+                  id="option_info"
                   class="blind"
                 />
-                <span class="checkbox"></span>
-                <label for="all" class="desc_option"
-                  >선택정보를 입력하시겠어요?</label
-                >
+                <label class="checkbox" for="option_info" id="option_check"></label>
+                <label class="desc_option" for="option_info">선택정보를 입력하시겠어요?</label>
                 <a
                   href="/#/policy/history?position=collectionAndUsageNormal"
                   class="info"
@@ -191,28 +189,31 @@
                   상세주소를 입력해 주세요.
                 </p>
               </div>
+            </div>
+            <div class="section">
               <div class="check_wrap">
                 <input
                   type="checkbox"
-                  name="status"
-                  value="all"
+                  name="agree_all"
+                  value="agree_all"
                   class="blind"
-                  id="all"
+                  id="agree_all"
                 />
-                <span class="checkbox"></span>
-                <label for="all" class="desc_option"
+                <label class="checkbox" for="agree_all"></label>
+                <label for="all" class="desc_option" for="agree_all"
                   >전체 약관에 동의합니다
                 </label>
               </div>
               <div class="check_wrap">
                 <input
                   type="checkbox"
-                  name="status"
-                  value="all"
+                  name="agree_required"
+                  value="agree_required"
+                  id="agree_required"
                   class="blind"
                 />
-                <span class="checkbox"></span>
-                <label for="all" class="desc_option"
+                <label class="checkbox" for="agree_required"></label>
+                <label for="all" class="desc_option" for="agree_required"
                   >필수 항목에 동의합니다.</label
                 >
                 <a
@@ -226,11 +227,12 @@
                 <input
                   type="checkbox"
                   name="status"
-                  value="all"
+                  value="agree_adv"
                   class="blind"
+                  id="agree_adv"
                 />
-                <span class="checkbox"></span>
-                <label for="all" class="desc_option"
+                <label class="checkbox" for="agree_adv"></label>
+                <label for="agree_adv" class="desc_option"
                   >광고성 정보 수신 동의 (선택)</label
                 >
                 <a
