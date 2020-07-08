@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./stylesheets/resetcss.css" />
-    <link rel="stylesheet" href="./stylesheets/signup.css" />
+    <link rel="stylesheet" href="/stylesheets/resetcss.css" />
+    <link rel="stylesheet" href="/stylesheets/signup.css" />
     <title>회원가입</title>
   </head>
   <body>
@@ -23,24 +23,24 @@
                   type="text"
                   name="userId"
                   value=""
-                  id="userid"
+                  id="userId"
                   class="input_txt"
                   placeholder="아이디* (4~20자)"
                 />
-                <p class="blind msg_error">
+                <p class="msg_error">
                   아이디를 입력해 주세요.
                 </p>
               </div>
               <div class="form_row">
                 <input
                   type="password"
-                  name="userId"
+                  name="userPW"
                   value=""
                   id="userPW"
                   class="input_txt"
                   placeholder="비밀번호* (영문+숫자, 8~20자)"
                 />
-                <p class="blind msg_error">
+                <p class="msg_error">
                   비밀번호를 입력해 주세요.
                 </p>
               </div>
@@ -53,35 +53,40 @@
                   class="input_txt"
                   placeholder="비밀번호 재확인*"
                 />
-                <p class="blind msg_error">
+                <p class="msg_error">
                   비밀번호 확인을 위해 한번 더 입력해 주세요.
                 </p>
               </div>
-              <div class="form_row flex_wrap">
-                <input
-                  type="text"
-                  name="email"
-                  value=""
-                  id="retypePW"
-                  class="input_email"
-                  placeholder="이메일 앞자리*"
-                />
-                <span class="email_at">@</span>
-                <input
-                  type="text"
-                  name="domain"
-                  value=""
-                  id="retypePW"
-                  class="input_email"
-                  placeholder="이메일 뒷자리*"
-                />
-                <p class="blind msg_error">
+              <div class="form_row">
+                <div class="flex_wrap">
+                  <input
+                    type="text"
+                    name="email"
+                    value=""
+                    id="email"
+                    class="input_email"
+                    placeholder="이메일 앞자리*"
+                  />
+                  <span class="email_at">@</span>
+                  <input
+                    type="text"
+                    name="domain_etc"
+                    value=""
+                    id="domain_etc"
+                    class="input_email"
+                    placeholder="이메일 뒷자리*"
+                    disabled
+                  />
+                </div>
+                <p class="msg_error">
                   이메일 주소를 입력해 주세요.
                 </p>
               </div>
               <div class="form_row" id="mail_domain">
-                <select class="input_txt">
-                  <option value="noSelected" selected>이메일 선택</option>
+                <select class="input_txt" id="domain">
+                  <option value="noSelected" selected disabled
+                    >이메일 선택</option
+                  >
                   <option value="naver.com">naver.com</option>
                   <option value="hanmail.net">hanmail.net</option>
                   <option value="nate.com">nate.com</option>
@@ -98,20 +103,25 @@
                   class="input_txt"
                   placeholder="이름*"
                 />
-                <p class="blind msg_error">
+                <p class="msg_error">
                   이름을 입력해 주세요.
                 </p>
               </div>
-              <div class="form_row flex_wrap">
-                <input
-                  type="text"
-                  name="email"
-                  value=""
-                  id="retypePW"
-                  class="input_left"
-                  placeholder="휴대폰*"
-                />
-                <button class="btn_right">인증받기</button>
+              <div class="form_row">
+                <div class="flex_wrap">
+                  <input
+                    type="text"
+                    name="phone"
+                    value=""
+                    id="phone"
+                    class="input_left"
+                    placeholder="휴대폰*"
+                  />
+                  <button class="btn_right" type="button">인증받기</button>
+                </div>
+                <p class="msg_error">
+                  전화번호를 입력해 주세요.
+                </p>
               </div>
               <ul class="form_row">
                 <li class="info">
@@ -132,7 +142,6 @@
                   name="status"
                   value="all"
                   class="blind"
-                  id="all"
                 />
                 <span class="checkbox"></span>
                 <label for="all" class="desc_option"
@@ -154,7 +163,7 @@
                   class="input_left"
                   placeholder="우편번호"
                 />
-                <button class="btn_right">주소찾기</button>
+                <button class="btn_right type="button">주소찾기</button>
               </div>
               <div class="form_row">
                 <input
@@ -165,7 +174,7 @@
                   class="input_txt"
                   placeholder="주소*"
                 />
-                <p class="blind msg_error">
+                <p class="msg_error">
                   주소를 입력해 주세요.
                 </p>
               </div>
@@ -178,7 +187,7 @@
                   class="input_txt"
                   placeholder="상세주소"
                 />
-                <p class="blind msg_error">
+                <p class="msg_error">
                   상세주소를 입력해 주세요.
                 </p>
               </div>
@@ -201,7 +210,6 @@
                   name="status"
                   value="all"
                   class="blind"
-                  id="all"
                 />
                 <span class="checkbox"></span>
                 <label for="all" class="desc_option"
@@ -220,7 +228,6 @@
                   name="status"
                   value="all"
                   class="blind"
-                  id="all"
                 />
                 <span class="checkbox"></span>
                 <label for="all" class="desc_option"
@@ -252,5 +259,6 @@
         </form>
       </div>
     </div>
+    <script type="module" src="/javascripts/signup.js"></script>
   </body>
 </html>
