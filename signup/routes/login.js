@@ -20,7 +20,7 @@ router.post("/", (req, res, next) => {
     const retObj = getReturnObj();
     retObj.isSuccess = false;
     retObj.data.isIdError = true;
-    res.send("first middle ware");
+    res.send(retObj);
   }
 });
 
@@ -33,7 +33,7 @@ router.post("/", (req, res, next) => {
     const retObj = getReturnObj();
     retObj.isSuccess = false;
     retObj.data.isPasswordError = true;
-    res.send("second middle ware");
+    res.send(retObj);
   }
 });
 
