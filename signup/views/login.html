@@ -3,24 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./stylesheets/login.css" />
+    <link rel="stylesheet" href="/stylesheets/login.css" />
     <title>로그인</title>
   </head>
   <body>
     <form class="login_form">
-      <div class="section">
+      <section class="logo">
+        <img src="/image/logo.png" alt="logo" />
+      </section>
+      <section class="id">
+        <div class="text">
+          <span>아이디를 입력하세요</span>
+          <span class="error_message">아이디가 올바르지 않습니다.</span>
+        </div>
         <input type="text" id="user_id" />
-      </div>
-      <div class="section">
-        <input type="text" id="user_pw" />
-      </div>
+      </section>
+      <section class="password">
+        <div class="text">
+          <span>비밀번호를 입력하세요</span>
+          <span class="error_message">비밀번호가 올바르지 않습니다.</span>
+        </div>
+        <input type="password" id="user_pw" />
+      </section>
       <div class="down_function">
         <div class="checkbox">
-          <input type="checkbox" name="saveId" id="" /> 아이디 저장
+          <input type="checkbox" name="saveId" /> 아이디 저장
         </div>
         <div class="sign">
-          <div>아이디/비밀번호 찾기</div>
-          <div>회원 가입</div>
+          <span id="find_account">아이디/비밀번호 찾기</span>
+          <span id="signup">회원 가입</span>
         </div>
       </div>
       <div class="login">
@@ -29,6 +40,6 @@
         </button>
       </div>
     </form>
-    <script type="text/javascript" src="/javascripts/login.js"></script>
+    <script type="module" src="/javascripts/login.js"></script>
   </body>
 </html>

@@ -1,6 +1,11 @@
+:root {
+  --margin-inner: 10px;
+}
+
 body {
-  width: 100vw;
-  height: 100vh;
+  margin: 0;
+  width:100vw;
+  height:100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,27 +20,60 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  border-radius: 20px;
 }
 
-.login_form .section {
+.login_form section {
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 5px;
   width: 400px;
 }
 
-.login_form .section input {
+.login_form .logo {
+  display: flex;
+  justify-content: center;
+}
+
+.login_form .logo img{
+  width:185px;
+  height:200px;
+}
+
+.login_form section input {
   padding: 0 5px 0 5px;
   border-width: 1px;
+  border-radius: 10px;
+  box-sizing: border-box;
   width: inherit;
+
   height: 40px;
+  font-size:1rem;
+}
+
+
+.login_form section input:focus {
+  outline: none;
+  border:3px solid #0000ff;
+}
+
+.login_form section .text{
+  display: flex;
+  justify-content: space-between;
+
+  padding:5px 0 5px 0;
+}
+
+.login_form section .text span{
+  padding:0 var(--margin-inner) 0 var(--margin-inner);
 }
 
 .login_form .down_function {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 5px;
+  padding: 5px var(--margin-inner) 5px var(--margin-inner);
 }
 
 .login_form .down_function .sign {
@@ -47,17 +85,38 @@ body {
   display: inline;
 }
 
+.login_form .down_function .sign span {
+  margin-left: var(--margin-inner);
+}
+
 .login_form .login {
   margin-top: 20px;
   padding: 5px;
 }
 
 .login_form .login button {
-  padding: 5px;
   width: 400px;
   height: 50px;
+  border-radius: 10px;
+  
+  padding: 0;
+  border:none;
 
   background-color: blue;
   color: white;
   font-size: 1.5rem;
+}
+
+.login_form .login button:focus {
+  outline: none;
+}
+
+.error_message{
+  display: none;
+
+  color:#ff0000;
+}
+
+.login_form .error .error_message{
+  display: block;
 }
