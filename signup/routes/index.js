@@ -10,12 +10,15 @@ router.get("/", (req, res) => {
 
   if (sessionKey !== undefined && session.checkSession(sessionKey)) {
     const userInfo = session.getUserBySession(sessionKey);
-    res.render("main.ejs", {
-      welcome: `${userInfo.id}님 어서오세요!`,
-    });
-  } else {
-    res.render("main.ejs", { welcome: "사장님, 로그인해주세요!" });
+
+    if (userInfo !== undefined) {
+      res.render("main.ejs", {
+        welcome: `${userInfo.id}님 어서오세요!`,
+      });
+      return;
+    }
   }
+  res.render("main.ejs", { welcome: "사장님, 로그인해주세요!" });
 });
 
 module.exports = router;
