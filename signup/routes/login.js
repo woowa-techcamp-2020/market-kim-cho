@@ -1,8 +1,11 @@
 import express from "express";
+import crypto from "crypto";
+
 import login from "../function/login/login";
 import idValidator from "../function/validator/idValidator";
 import passwordValidator from "../function/validator/passwordValidator";
 import getReturnObj from "../function/login/getReturnObj";
+import session from "../function/session/session";
 
 const router = express.Router();
 
@@ -40,6 +43,20 @@ router.post("/", (req, res, next) => {
 router.post("/", (req, res) => {
   const { id, password } = req.body;
   const retObj = login(id, password);
+
+  if (!retObj.isSuccess) {
+    res.send(retObj);
+    return;
+  }
+
+  const now = `${new Date().getTime()}`;
+
+  const sessionKey = crypto.createHash("sha512").update(now).digest("hex");
+
+  session.setSession(sessionKey, id);
+  res.cookie("sessionKey", sessionKey, {
+    expires: new Date(Date.now() + 5 * 60 * 1000),
+  });
   res.send(retObj);
 });
 
