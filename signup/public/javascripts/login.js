@@ -18,7 +18,6 @@ const passwordMessage = document.querySelector(
 
 function showIdError(errMessage) {
   idSection.classList.add("error");
-  idInput.value = "";
   idMessage.innerText = `${errMessage}`;
 }
 
@@ -33,8 +32,7 @@ function switching(response) {
     window.location.href = "http://localhost:3000/";
   } else {
     if (response.data.isIdError) {
-      showIdError("유효하지 않은 아이디입니다.");
-      passwordInput.value = "";
+      showIdError("없는 아이디입니다.");
     }
     if (response.data.isPasswordError) {
       showPasswordError("비밀번호가 잘못되었습니다.");
