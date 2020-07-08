@@ -11,29 +11,6 @@ function retypePwValidator(retypePW) {
   return pw === retypePW;
 }
 
-function onBlurInput(val, parent, validator) {
-  const parentClassList = parent.classList;
-  if (!validator(val)) parentClassList.add("error");
-}
-
-const keyMap = new Map();
-keyMap.set("userId", idValidator);
-keyMap.set("userPW", passwordValidator);
-keyMap.set("name", nameValidator);
-keyMap.set("phone", phoneValidator);
-keyMap.set("retypePW", retypePwValidator);
-
-keyMap.forEach((validator, key) => {
-  const el = document.getElementById(key);
-  el.addEventListener("blur", (e) => {
-    const { target } = e;
-    const { value } = target;
-    let parent = target.parentElement;
-    if (key === "phone") parent = parent.parentElement;
-    onBlurInput(value, parent, validator);
-  });
-});
-
 const elId = document.getElementById("userId");
 elId.addEventListener("blur", (e) => {
   const { target } = e;
