@@ -7,7 +7,7 @@ import {
 } from "/validator/index.js";
 
 function retypePwValidator(retypePW) {
-  const pw = document.getElementById("userPW");
+  const pw = document.getElementById("userPW").value;
   return pw === retypePW;
 }
 
