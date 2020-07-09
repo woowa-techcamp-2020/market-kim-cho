@@ -1,6 +1,9 @@
 import * as elementObj from "/javascripts/signup/elementObj.js";
 import * as validator from "/javascripts/signup//validator.js";
 import retrieveValue from "./retrieveValue.js";
+import { elRetype } from "./elementObj.js";
+import { signup, validateAll, existError } from "./signup.js";
+import { validateDomain } from "./validator.js";
 
 export default function addEventListener() {
   elementObj.elId.addEventListener("blur", (e) => {
@@ -8,6 +11,7 @@ export default function addEventListener() {
   });
   elementObj.elPW.addEventListener("blur", (e) => {
     validator.validatePassword(e.target);
+    if (elRetype.value.length > 0) validator.validateRetype(elRetype);
   });
   elementObj.elRetype.addEventListener("blur", (e) => {
     validator.validateRetype(e.target);
@@ -33,11 +37,16 @@ export default function addEventListener() {
     validator.validateName(e.target);
   });
 
-  elementObj.elOptionInfo.addEventListener("click", (e) => {
+  elementObj.elOptionInfo.addEventListener("change", (e) => {
     validator.checkOptionAgreement(e.target);
   });
 
-  elementObj.elSignup.addEventListener("click", (e) => {
-    retrieveValue();
+  elementObj.elSignup.addEventListener("click", () => {
+    validateAll();
+    if (!existError()) signup(retrieveValue());
+  });
+
+  elementObj.elVerification.addEventListener("click", (e) => {
+    if (!existError()) validator.getVerificationCode(e.target);
   });
 }

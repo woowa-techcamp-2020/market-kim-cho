@@ -7,7 +7,7 @@ import {
 } from "/validator/index.js";
 
 function retypePwValidator(retypePW) {
-  const pw = document.getElementById("userPW");
+  const pw = document.getElementById("userPW").value;
   return pw === retypePW;
 }
 
@@ -187,6 +187,10 @@ function checkOptionAgreement(target) {
   elSection.classList.toggle("disabled");
 }
 
+function getVerificationCode(target) {
+  target.closest(".section").classList.add("on_verification");
+}
+
 export {
   validateId,
   validatePassword,
@@ -197,4 +201,5 @@ export {
   validateName,
   validatePhone,
   checkOptionAgreement,
+  getVerificationCode,
 };

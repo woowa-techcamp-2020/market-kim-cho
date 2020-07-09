@@ -117,10 +117,19 @@
                     class="input_left"
                     placeholder="휴대폰*"
                   />
-                  <button class="btn_right" type="button">인증받기</button>
+                  <button class="btn_right" type="button" id="btn_verification">인증받기</button>
                 </div>
                 <p class="msg_error">
                   전화번호를 입력해 주세요.
+                </p>
+              </div>
+              <div class="form_row hidden_form">
+                <div class="flex_wrap">
+                  <input type="text" name="verification_code" value="" id="verification_code" class="input_left" placeholder="인증번호 6자리 입력" />
+                  <button class="btn_right" type="button">확인</button>
+                  <span class="timer">01:00</span>
+                </div>
+                <p class="msg_error">
                 </p>
               </div>
               <ul class="form_row">
@@ -157,7 +166,7 @@
                   type="text"
                   name="postnumber"
                   value=""
-                  id="rpostnumber"
+                  id="postnumber"
                   class="input_left"
                   placeholder="우편번호"
                 />
@@ -200,7 +209,7 @@
                   id="agree_all"
                 />
                 <label class="checkbox" for="agree_all"></label>
-                <label for="all" class="desc_option" for="agree_all"
+                <label class="desc_option" for="agree_all"
                   >전체 약관에 동의합니다
                 </label>
               </div>
@@ -213,9 +222,7 @@
                   class="blind"
                 />
                 <label class="checkbox" for="agree_required"></label>
-                <label for="all" class="desc_option" for="agree_required"
-                  >필수 항목에 동의합니다.</label
-                >
+                <label class="desc_option" for="agree_required">필수 항목에 동의합니다.</label>
                 <a
                   href="/#/policy/history?position=collectionAndUsageNormal"
                   class="info"
@@ -226,7 +233,7 @@
               <div class="check_wrap">
                 <input
                   type="checkbox"
-                  name="status"
+                  name="agree_adv"
                   value="agree_adv"
                   class="blind"
                   id="agree_adv"
@@ -261,6 +268,6 @@
         </form>
       </div>
     </div>
-    <script type="module" src="/javascripts/signup/signup.js"></script>
+    <script type="module" src="/javascripts/signup/index.js"></script>
   </body>
 </html>

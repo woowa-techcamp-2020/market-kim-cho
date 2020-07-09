@@ -37,6 +37,7 @@ body {
   box-sizing: border-box;
 }
 .form_row {
+  position: relative;
   width: 325px;
   margin: 5px 5px;
   min-height: 50px;
@@ -126,4 +127,18 @@ input[type="checkbox"]:checked + .checkbox {
   background-color: #eee;
   color: #555;
   opacity: 1;
+}
+
+.hidden_form {
+  display: none;
+}
+
+.on_verification .hidden_form {
+  display: block;
+}
+
+.timer {
+  position: absolute;
+  right: 35%;
+  color: #f52926;
 }
