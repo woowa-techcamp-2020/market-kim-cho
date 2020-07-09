@@ -4,3 +4,5 @@ package-lock.json
 yarn.lock
 db.json
 .DS_Store
+
+.env
