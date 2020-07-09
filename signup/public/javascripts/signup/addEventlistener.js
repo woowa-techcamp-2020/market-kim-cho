@@ -2,8 +2,29 @@ import * as elementObj from "/javascripts/signup/elementObj.js";
 import * as validator from "/javascripts/signup//validator.js";
 import retrieveValue from "./retrieveValue.js";
 import { elRetype } from "./elementObj.js";
-import { signup, validateAll, existError } from "./signup.js";
-import { validateDomain } from "./validator.js";
+import { signup } from "./signup.js";
+import {
+  changeDomain,
+  checkOptionAgreement,
+  getVerificationCode,
+  checkAgreeAll,
+  checkAgree,
+} from "./action.js";
+
+function validateAll() {
+  validator.validateId(elementObj.elId);
+  validator.validatePassword(elementObj.elPW);
+  validator.validateRetype(elementObj.elRetype);
+  validator.validateEmail(elementObj.elEmail);
+  validator.validateDomain(elementObj.elDomain);
+  validator.validatePhone(elementObj.elPhone);
+  validator.validateName(elementObj.elName);
+}
+
+function existError() {
+  if (document.querySelectorAll(".error").length > 0) return true;
+  return false;
+}
 
 export default function addEventListener() {
   elementObj.elId.addEventListener("blur", (e) => {
@@ -26,7 +47,7 @@ export default function addEventListener() {
   });
 
   elementObj.elSelectDomain.addEventListener("change", (e) => {
-    validator.changeDomain(e.target);
+    changeDomain(e.target);
   });
 
   elementObj.elPhone.addEventListener("blur", (e) => {
@@ -38,7 +59,7 @@ export default function addEventListener() {
   });
 
   elementObj.elOptionInfo.addEventListener("change", (e) => {
-    validator.checkOptionAgreement(e.target);
+    checkOptionAgreement(e.target);
   });
 
   elementObj.elSignup.addEventListener("click", () => {
@@ -47,6 +68,21 @@ export default function addEventListener() {
   });
 
   elementObj.elVerification.addEventListener("click", (e) => {
-    if (!existError()) validator.getVerificationCode(e.target);
+    validator.validatePhone(elementObj.elPhone);
+    if (!existError()) {
+      getVerificationCode(e.target, elementObj.elTimer);
+    }
+  });
+  elementObj.elAgreeAll.addEventListener("change", (e) => {
+    checkAgreeAll(e.target, [
+      elementObj.elAgreeRequired,
+      elementObj.elAgreeAdv,
+    ]);
+  });
+  elementObj.elAgreeRequired.addEventListener("change", (e) => {
+    checkAgree(e.target, elementObj.elAgreeAll);
+  });
+  elementObj.elAgreeAdv.addEventListener("change", (e) => {
+    checkAgree(e.target, elementObj.elAgreeAll);
   });
 }

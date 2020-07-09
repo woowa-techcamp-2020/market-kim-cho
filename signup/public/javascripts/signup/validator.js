@@ -125,14 +125,6 @@ function validateDomain(target) {
   }
 }
 
-function changeDomain(target) {
-  const { value } = target;
-  const domainEl = document.getElementById("domain_etc");
-  if (value === "etc") {
-    domainEl.removeAttribute("disabled");
-  } else domainEl.value = value;
-}
-
 function validateName(target) {
   const { value } = target;
   let msg = "";
@@ -182,24 +174,12 @@ function validatePhone(target) {
   }
 }
 
-function checkOptionAgreement(target) {
-  const elSection = target.closest(".section");
-  elSection.classList.toggle("disabled");
-}
-
-function getVerificationCode(target) {
-  target.closest(".section").classList.add("on_verification");
-}
-
 export {
   validateId,
   validatePassword,
   validateRetype,
   validateEmail,
   validateDomain,
-  changeDomain,
   validateName,
   validatePhone,
-  checkOptionAgreement,
-  getVerificationCode,
 };
