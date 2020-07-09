@@ -157,6 +157,7 @@ router.post("/", (req, res) => {
   const userObj = signup(id, encryptedPassword, email, name, phone);
   retObj.isSuccess = true;
   retObj.data.userObj = userObj;
+  retObj.data.userObj.password = undefined;
 
   res.send(retObj);
 });
