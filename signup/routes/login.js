@@ -8,10 +8,13 @@ import getReturnObj from "../function/login/getReturnObj";
 import session from "../function/session/session";
 
 const router = express.Router();
-const salt = "woowa";
+
+require("dotenv").config();
+const salt = `${process.env.ACCOUNT_SALT}`;
 
 /* GET users listing. */
 router.get("/", (req, res) => {
+  console.log("index");
   res.render("login.html");
 });
 

@@ -1,6 +1,10 @@
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 
+require("dotenv").config();
+
+const limitMinute = parseInt(`${process.env.SESSION_EXPIRE_MIN}`);
+
 /**
  * 로그인 시 session을 저장하는 함수
  * @param {string} sessionKey
@@ -35,8 +39,7 @@ function checkSession(sessionKey) {
     return false;
   }
 
-  if (session.time + 5 * 60 * 1000 < now) {
-    db.get("session").find({ key: sessionKey }).write();
+  if (session.time + limitMinute * 60 * 1000 < now) {
     return false;
   }
 

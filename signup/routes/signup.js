@@ -13,7 +13,10 @@ import getReturnObj from "../function/signup/getReturnObj";
 import signup from "../function/signup/signup";
 
 const router = express.Router();
-const salt = "woowa";
+
+require("dotenv").config();
+
+const salt = `${process.env.ACCOUNT_SALT}`;
 
 /* GET users listing. */
 router.get("/", (req, res) => {

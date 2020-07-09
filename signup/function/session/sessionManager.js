@@ -1,6 +1,11 @@
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 
+require("dotenv").config();
+
+const limitMinute = parseInt(`${process.env.SESSION_EXPIRE_MIN}`);
+const cycleMinute = parseInt(`${process.env.SESSION_CYCLE_MIN}`);
+
 class SessionManager {
   constructor() {
     this.queue = [];
@@ -19,7 +24,7 @@ class SessionManager {
     const sessions = db
       .get("session")
       .filter((val) => {
-        if (val.time + 5 * 60 * 1000 < now) {
+        if (val.time + limitMinute * 60 * 1000 < now) {
           return val.key;
         }
       })
@@ -58,7 +63,7 @@ class SessionManager {
 
     setTimeout(() => {
       this.startDetect();
-    }, 10 * 60 * 1000);
+    }, cycleMinute * 60 * 1000);
   }
 }
 

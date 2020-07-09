@@ -29,7 +29,7 @@ function showPasswordError(errMessage) {
 
 function switching(response) {
   if (response.isSuccess) {
-    window.location.href = "http://localhost:3000/";
+    window.location.href = "/";
   } else {
     if (response.data.isIdError) {
       showIdError("없는 아이디입니다.");
@@ -41,7 +41,7 @@ function switching(response) {
 }
 
 function login(id, password) {
-  fetch("http://localhost:3000/login", {
+  fetch("/login", {
     method: "POST",
     body: JSON.stringify({ id, password }),
     headers: {
