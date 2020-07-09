@@ -121,7 +121,7 @@
                     인증받기
                   </button>
                 </div>
-                <p class="msg_error">
+                <p class="msg_error" id="phone_error">
                   전화번호를 입력해 주세요.
                 </p>
               </div>
@@ -278,12 +278,9 @@
               <div class="form_row">
                 <p class="info">
                   만 14세 이상 회원만 가입 가능합니다.
-                  <a
-                    href="/#/policy/history?position=collectionAndUsageNormal"
-                    class="info"
-                  >
+                  <span id="under_age" class="info">
                     내용보기
-                  </a>
+                  </span>
                 </p>
               </div>
               <div class="form_row">
@@ -294,6 +291,13 @@
             </div>
           </fieldset>
         </form>
+      </div>
+      <div class="modal_back" id="modal_back"></div>
+      <div class="modal_info" id="modal_info">
+        <div id="modal_content" class="modal_content">
+          <p></p>
+        </div>
+        <button type="button" id="btn_modal" class="btn_modal">확인</button>
       </div>
     </div>
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

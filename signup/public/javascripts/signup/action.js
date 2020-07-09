@@ -60,10 +60,24 @@ function checkAgree(target, parent) {
   if (!target.checked) parent.checked = false;
 }
 
+function setModal(modal, msg) {
+  const parentEl = modal.parentElement;
+  parentEl.classList.add("modalOn");
+  modal.querySelector("p").innerText = msg;
+}
+
+function closeModal(modal) {
+  const parentEl = modal.parentElement;
+  parentEl.classList.remove("modalOn");
+  modal.querySelector("p").innerText = "";
+}
+
 export {
   changeDomain,
   checkOptionAgreement,
   getVerificationCode,
   checkAgreeAll,
   checkAgree,
+  setModal,
+  closeModal,
 };

@@ -141,3 +141,60 @@ input[type="checkbox"]:checked + .checkbox {
   right: 35%;
   color: #f52926;
 }
+
+.option_info {
+  font-size: 16px;
+  line-height: 25px;
+  color: #212329;
+  margin: 5px;
+}
+
+.terms_wrap {
+  padding-left: 40px;
+}
+
+.modalOn .modal_back,
+.modalOn .modal_info {
+  display: block;
+}
+
+.modal_back {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 10;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.7;
+  display: none;
+}
+
+.modal_info {
+  z-index: 15;
+  width: 300px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  display: none;
+}
+
+.modal_content {
+  line-height: 25px;
+  padding: 27px 25px 25px;
+}
+
+.btn_modal {
+  line-height: 25px;
+  width: 100%;
+  padding: 14px 0 13px;
+  border-top: 1px solid #979797;
+}
+
+#under_age {
+  text-decoration: underline;
+  cursor: pointer;
+}
