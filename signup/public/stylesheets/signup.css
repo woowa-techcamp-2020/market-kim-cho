@@ -79,9 +79,11 @@ body {
 .info {
   font-size: 12px;
   color: #898989;
+  margin-left: 5px;
 }
 .checkbox {
   display: inline-block;
+  margin: 5px;
   width: 22px;
   height: 22px;
   background-image: url("/image/ico_checkbox_off.png");
@@ -92,8 +94,6 @@ input[type="checkbox"]:checked + .checkbox {
   background-image: url("/image/ico_checkbox_on.png");
 }
 .check_wrap {
-  margin-right: 25px;
-  display: inline-block;
   margin-bottom: 3px;
 }
 .desc_option {
