@@ -117,7 +117,9 @@
                     class="input_left"
                     placeholder="휴대폰*"
                   />
-                  <button class="btn_right" type="button" id="btn_verification">인증받기</button>
+                  <button class="btn_right" type="button" id="btn_verification">
+                    인증받기
+                  </button>
                 </div>
                 <p class="msg_error">
                   전화번호를 입력해 주세요.
@@ -125,12 +127,18 @@
               </div>
               <div class="form_row hidden_form">
                 <div class="flex_wrap">
-                  <input type="text" name="verification_code" value="" id="verification_code" class="input_left" placeholder="인증번호 6자리 입력" />
+                  <input
+                    type="text"
+                    name="verification_code"
+                    value=""
+                    id="verification_code"
+                    class="input_left"
+                    placeholder="인증번호 6자리 입력"
+                  />
                   <button class="btn_right" type="button">확인</button>
                   <span class="timer">01:00</span>
                 </div>
-                <p class="msg_error">
-                </p>
+                <p class="msg_error"></p>
               </div>
               <ul class="form_row">
                 <li class="info">
@@ -152,8 +160,14 @@
                   id="option_info"
                   class="blind"
                 />
-                <label class="checkbox" for="option_info" id="option_check"></label>
-                <label class="desc_option" for="option_info">선택정보를 입력하시겠어요?</label>
+                <label
+                  class="checkbox"
+                  for="option_info"
+                  id="option_check"
+                ></label>
+                <label class="desc_option" for="option_info"
+                  >선택정보를 입력하시겠어요?</label
+                >
                 <a
                   href="/#/policy/history?position=collectionAndUsageNormal"
                   class="info"
@@ -170,7 +184,9 @@
                   class="input_left"
                   placeholder="우편번호"
                 />
-                <button class="btn_right type="button">주소찾기</button>
+                <button class="btn_right" type="button" id="find_address">
+                  주소찾기
+                </button>
               </div>
               <div class="form_row">
                 <input
@@ -222,7 +238,9 @@
                   class="blind"
                 />
                 <label class="checkbox" for="agree_required"></label>
-                <label class="desc_option" for="agree_required">필수 항목에 동의합니다.</label>
+                <label class="desc_option" for="agree_required"
+                  >필수 항목에 동의합니다.</label
+                >
                 <a
                   href="/#/policy/history?position=collectionAndUsageNormal"
                   class="info"
@@ -261,13 +279,20 @@
                 </p>
               </div>
               <div class="form_row">
-                <button class="button_signup" id="btn_signup" type="button">가입완료</button>
+                <button class="button_signup" id="btn_signup" type="button">
+                  가입완료
+                </button>
               </div>
             </div>
           </fieldset>
         </form>
       </div>
     </div>
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script type="module" src="/javascripts/signup/index.js"></script>
+    <script
+      type="text/javascript"
+      src="/javascripts/signup/address.js"
+    ></script>
   </body>
 </html>
