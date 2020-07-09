@@ -49,4 +49,21 @@ function getVerificationCode(target, elTimer) {
   });
 }
 
-export { changeDomain, checkOptionAgreement, getVerificationCode };
+function checkAgreeAll(target, children) {
+  children.forEach((child) => {
+    if (!target.checked) child.checked = false;
+    else child.checked = true;
+  });
+}
+
+function checkAgree(target, parent) {
+  if (!target.checked) parent.checked = false;
+}
+
+export {
+  changeDomain,
+  checkOptionAgreement,
+  getVerificationCode,
+  checkAgreeAll,
+  checkAgree,
+};

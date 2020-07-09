@@ -7,6 +7,8 @@ import {
   changeDomain,
   checkOptionAgreement,
   getVerificationCode,
+  checkAgreeAll,
+  checkAgree,
 } from "./action.js";
 
 function validateAll() {
@@ -70,5 +72,17 @@ export default function addEventListener() {
     if (!existError()) {
       getVerificationCode(e.target, elementObj.elTimer);
     }
+  });
+  elementObj.elAgreeAll.addEventListener("change", (e) => {
+    checkAgreeAll(e.target, [
+      elementObj.elAgreeRequired,
+      elementObj.elAgreeAdv,
+    ]);
+  });
+  elementObj.elAgreeRequired.addEventListener("change", (e) => {
+    checkAgree(e.target, elementObj.elAgreeAll);
+  });
+  elementObj.elAgreeAdv.addEventListener("change", (e) => {
+    checkAgree(e.target, elementObj.elAgreeAll);
   });
 }
