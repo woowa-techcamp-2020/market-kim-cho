@@ -1,15 +1,15 @@
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 
-const adapter = new FileSync("./db/db.json");
-const db = low(adapter);
-
 /**
  * 로그인 시 session을 저장하는 함수
  * @param {string} sessionKey
  * @param {string} id
  */
 function setSession(sessionKey, id) {
+  const adapter = new FileSync("./db/db.json");
+  const db = low(adapter);
+
   if (sessionKey === "" || typeof sessionKey !== "string") return false;
 
   const now = new Date().getTime();
@@ -23,6 +23,9 @@ function setSession(sessionKey, id) {
  * @param {string} sessionKey
  */
 function checkSession(sessionKey) {
+  const adapter = new FileSync("./db/db.json");
+  const db = low(adapter);
+
   if (sessionKey === "" || typeof sessionKey !== "string") return false;
 
   const now = new Date().getTime();
@@ -45,6 +48,9 @@ function checkSession(sessionKey) {
  * @param {string} sessionKey
  */
 function getUserBySession(sessionKey) {
+  const adapter = new FileSync("./db/db.json");
+  const db = low(adapter);
+
   if (sessionKey === "" || typeof sessionKey !== "string") return undefined;
 
   const session = db.get("session").find({ key: sessionKey }).value();

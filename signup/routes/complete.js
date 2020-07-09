@@ -4,7 +4,7 @@ const router = express.Router();
 
 /* GET users listing. */
 router.get("/", (req, res) => {
-  let { name, id, email, phone } = req.body;
+  let { name, id, email, phone } = req.query;
 
   name = !name ? "name error" : name;
   id = !id ? "id error" : id;

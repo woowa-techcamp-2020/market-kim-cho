@@ -1,9 +1,6 @@
 import low from "lowdb";
 import FileSync from "lowdb/adapters/FileSync";
 
-const adapter = new FileSync("./db/db.json");
-const db = low(adapter);
-
 /**
  * 입력받은 인자를 바탕으로 lowdb에 회원정보를 저장함
  * @param {string} id 아이디
@@ -13,6 +10,9 @@ const db = low(adapter);
  * @param {string} phone 전화번호
  */
 export default function signup(id, password, email, name, phone) {
+  const adapter = new FileSync("./db/db.json");
+  const db = low(adapter);
+
   const userObj = {
     id,
     password,

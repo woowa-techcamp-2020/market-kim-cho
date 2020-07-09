@@ -11,5 +11,9 @@ module.exports = {
   rules: {
     quotes: ["error", "double", { allowTemplateLiterals: true }],
     "comma-dangle": ["error", "only-multiline"],
+    "object-curly-newline": ["error", { multiline: true }],
+    "import/no-absolute-path": [false],
+    "import/extensions": [false],
+    "import/no-unresolved": [false],
   },
 };
