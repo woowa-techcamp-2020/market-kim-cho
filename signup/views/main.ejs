@@ -3,17 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="./stylesheets/main.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
     <title>메인 페이지</title>
   </head>
   <body>
     <div class="wrap">
-      <p><%= welcome %></p>
-      <button class="btn_login">배민사장님광장 로그인</button>
-      <div class="link">
-        <a>아이디/비밀번호 찾기</a>
-        <a>회원가입</a>
-      </div>
+      <section class="logo">
+        <img src="./image/logo.png" alt="logo" />
+      </section>
+      <hr noshade />
+      <section class="welcome">
+        <h3><%= user %></h3>
+        <p><%= welcome %></p>
+      </section>
+      <section>
+        <button class="btn_login">배민사장님광장 로그인</button>
+      </section>
+      <section class="link">
+        <a href="#">아이디/비밀번호 찾기</a>
+        <a href="/signup">회원가입</a>
+      </section>
     </div>
   </body>
+  <script type="text/javascript" src="/javascripts/index.js"></script>
 </html>
