@@ -32,6 +32,24 @@ function validateId(target) {
     infoEl.classList.remove("error");
   }
   infoEl.classList.add(state);
+
+  fetch("/signup/duplicate", {
+    method: "POST",
+    body: JSON.stringify({ id: value }),
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (!res.isSuccess) {
+        infoEl.innerText = "중복된 아이디 입니다";
+        target.classList.add("error_input");
+        infoEl.classList.add("error");
+      } else {
+      }
+    });
 }
 
 function validatePassword(target) {
