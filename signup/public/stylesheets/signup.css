@@ -38,8 +38,12 @@ body {
 }
 .form_row {
   width: 325px;
-  height: 50px;
   margin: 5px 5px;
+  min-height: 50px;
+}
+.form_row input,
+#domain {
+  border: 1px solid #d7dbe6;
 }
 .flex_wrap {
   display: flex;
@@ -62,6 +66,12 @@ body {
   flex: 3;
   padding: 12px 14px;
   max-width: 30%;
+  border: 1px solid #ccc;
+  color: #bbc0cd;
+}
+.btn_act {
+  border-color: #1a7cff;
+  color: #1a7cff;
 }
 .email_at {
   flex: 2;
@@ -74,11 +84,12 @@ body {
   display: inline-block;
   width: 22px;
   height: 22px;
-  background-image: url("image/ico_checkbox_off.png");
+  background-image: url("/image/ico_checkbox_off.png");
+  border: 1px solid #bbc0cd;
   vertical-align: middle;
 }
-.checked {
-  background-image: url("image/ico_checkbox_on.png");
+input[type="checkbox"]:checked + .checkbox {
+  background-image: url("/image/ico_checkbox_on.png");
 }
 .check_wrap {
   margin-right: 25px;
@@ -95,4 +106,24 @@ body {
   color: #fff;
   box-sizing: border-box;
   font-size: 16px;
+}
+
+.msg_error {
+  color: #f52926;
+  display: none;
+}
+.error {
+  display: block;
+  padding: 8px 0;
+}
+.error_input {
+  border-color: #f52926;
+}
+
+.disabled input,
+.disabled button {
+  pointer-events: none;
+  background-color: #eee;
+  color: #555;
+  opacity: 1;
 }
