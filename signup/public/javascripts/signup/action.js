@@ -1,0 +1,52 @@
+function changeDomain(target) {
+  const { value } = target;
+  const domainEl = document.getElementById("domain_etc");
+  if (value === "etc") {
+    domainEl.removeAttribute("disabled");
+  } else domainEl.value = value;
+}
+
+function checkOptionAgreement(target) {
+  const elSection = target.closest(".section");
+  elSection.classList.toggle("disabled");
+}
+
+function formatTime(sec) {
+  const secNumber = parseInt(sec, 10);
+  const minutes = Math.floor(secNumber / 60);
+  const seconds = secNumber % 60;
+
+  return [minutes, seconds].map((v) => (v < 10 ? "0" + v : v)).join(":");
+}
+
+function setTimer(target) {
+  let time = 10;
+  const timer = target;
+  return new Promise((resolve) => {
+    const timerId = setInterval(() => {
+      timer.innerText = formatTime(time);
+      if (time === 0) {
+        clearInterval(timerId);
+        resolve(time);
+      }
+      time -= 1;
+    }, 1000);
+  });
+}
+
+function getVerificationCode(target, elTimer) {
+  target.closest(".section").classList.add("on_verification");
+  target.innerText = "재전송";
+  setTimer(elTimer).then((time) => {
+    if (time === 0) {
+      const infoEl = target.parentElement.nextElementSibling;
+      infoEl.classList.add("error");
+      infoEl.innerText =
+        "입력시간을 초과하였습니다. 인증번호 재전송 후 다시 시도해 주세요.";
+    }
+    target.closest(".section").classList.remove("on_verification");
+    target.innerText = "인증받기";
+  });
+}
+
+export { changeDomain, checkOptionAgreement, getVerificationCode };

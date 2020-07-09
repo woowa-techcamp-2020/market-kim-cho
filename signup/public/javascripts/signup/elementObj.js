@@ -15,6 +15,7 @@ const elAgreeAll = document.getElementById("agree_all");
 const elAgreeRequired = document.getElementById("agree_required");
 const elAgreeAdv = document.getElementById("agree_adv");
 const elVerification = document.getElementById("btn_verification");
+const elTimer = document.getElementById("timer");
 export {
   elId,
   elPW,
@@ -33,4 +34,5 @@ export {
   elAgreeRequired,
   elAgreeAdv,
   elVerification,
+  elTimer,
 };
