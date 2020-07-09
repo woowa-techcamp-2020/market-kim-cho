@@ -17,9 +17,7 @@
     "http-errors": "~1.6.3",
     "lowdb": "^1.0.0",
     "morgan": "~1.9.1",
-    "pug": "2.0.0-beta11"
-  },
-  "devDependencies": {
+    "pug": "2.0.0-beta11",
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",
     "@babel/node": "^7.10.4",
@@ -32,6 +30,7 @@
     "eslint-plugin-react-hooks": "4.0.0",
     "jest": "^26.1.0"
   },
+  "devDependencies": {},
   "babel": {
     "presets": [
       "@babel/preset-env"
