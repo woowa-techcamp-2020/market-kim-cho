@@ -11,9 +11,5 @@ export default function isDuplicated(id) {
     return false;
   }
 
-  if (userInfo.id === id) {
-    return false;
-  }
-
   return true;
 }
