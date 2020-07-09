@@ -13,12 +13,13 @@ router.get("/", (req, res) => {
 
     if (userInfo !== undefined) {
       res.render("main.ejs", {
-        welcome: `${userInfo.id}님 어서오세요!`,
+        user: `${userInfo.name}`,
+        welcome: `님 어서오세요!`,
       });
       return;
     }
   }
-  res.render("main.ejs", { welcome: "사장님, 로그인해주세요!" });
+  res.render("main.ejs", { user: `사장님`, welcome: `로그인해주세요` });
 });
 
 module.exports = router;

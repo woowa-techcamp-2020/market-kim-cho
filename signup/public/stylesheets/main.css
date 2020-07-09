@@ -1,16 +1,88 @@
+:root {
+  --button-default: #0000ff;
+  --button-hover: #000099;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(155, 226, 226);
+}
+
 .wrap {
   width: 400px;
-  height: 200px;
+
   padding: 10px 25px;
   border: 1px solid black;
+
+  border-radius: 20px;
+
+  background-color: #ffffff;
 }
-.btn_login {
-  display: block;
-  background-color: aqua;
+
+.wrap .logo {
+  display: flex;
+  justify-content: center;
+}
+
+.wrap .logo img {
+  width: 185px;
+  height: 200px;
+}
+
+.wrap section {
+  margin: 20px 0 10px 0;
+}
+
+.wrap hr {
+  width: inherit;
+  color: #000000;
+}
+
+.wrap section.welcome {
+  display: flex;
+  align-items: center;
+}
+
+.wrap section.welcome p,
+h3 {
+  margin: 0 5px 0 5px;
+}
+
+.wrap section button.btn_login {
+  width: 400px;
   height: 100px;
-  width: 100%;
+  border-radius: 10px;
+
+  padding: 0;
+  border: none;
+
+  background-color: var(--button-default);
   color: white;
+  font-size: 1.5rem;
+
+  transition: all 0.3s;
 }
-.link {
+
+.wrap section button.btn_login:focus {
+  outline: none;
+}
+
+.wrap section button.btn_login:hover {
+  background-color: var(--button-hover);
+}
+
+.wrap section.link {
   float: right;
+}
+
+.wrap section.link a {
+  text-decoration: none;
+  color: black;
+  margin: 0 5px 0 5px;
 }
