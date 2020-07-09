@@ -38,6 +38,7 @@ class SessionManager {
       return false;
     }
     const target = this.queue[0];
+    this.queue.shift();
 
     db.get("session").remove({ key: target }).write();
 
