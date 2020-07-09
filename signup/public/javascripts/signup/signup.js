@@ -17,7 +17,7 @@ function existError() {
 }
 
 function signup(userInfo) {
-  fetch("http://localhost:3000/signup", {
+  fetch("/signup", {
     method: "POST",
     body: JSON.stringify(userInfo),
     headers: {
