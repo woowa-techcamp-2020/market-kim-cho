@@ -35,7 +35,9 @@ app.get("/", (req, res, next) => {
     next();
     return;
   }
-  session.checkSession(sessionKey);
+  if (!session.checkSession(sessionKey)) {
+    res.clearCookie("sessionKey");
+  }
   next();
 });
 
