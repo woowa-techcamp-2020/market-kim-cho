@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-height: 800px) {
+  body {
+    margin: 0;
+    height: 800px;
+    width: 100%;
+  }
+}
+
+form.wrap {
+  width: 400px;
+  padding: 10px 25px;
+  background-color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border: 1px solid #000000;
+  border-radius: 20px;
+}
+
+form.wrap hr {
+  width: inherit;
+  color: #000000;
+}
+
+form.wrap section.goto_main .link {
+  font-size: 1.5rem;
+}
+
+form.wrap section.goto_main .link a {
+  text-decoration: none;
+  color: #000000;
+}
+
+form.wrap section {
+  margin: 20px 0 10px 0;
+  width: inherit;
+}
+
+form.wrap .content table .key {
+  width: 100px;
+  text-align: center;
+}
+
+form.wrap section.announce p {
+  margin: 0;
+}
