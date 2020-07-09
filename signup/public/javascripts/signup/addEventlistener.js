@@ -33,7 +33,7 @@ export default function addEventListener() {
     validator.validateName(e.target);
   });
 
-  elementObj.elOptionInfo.addEventListener("click", (e) => {
+  elementObj.elOptionInfo.addEventListener("change", (e) => {
     validator.checkOptionAgreement(e.target);
   });
 

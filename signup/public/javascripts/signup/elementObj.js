@@ -6,7 +6,7 @@ const elDomain = document.getElementById("domain_etc");
 const elSelectDomain = document.getElementById("domain");
 const elName = document.getElementById("name");
 const elPhone = document.getElementById("phone");
-const elOptionInfo = document.getElementById("option_check");
+const elOptionInfo = document.getElementById("option_info");
 const elSignup = document.getElementById("btn_signup");
 
 export {
