@@ -8,6 +8,7 @@ import getReturnObj from "../function/login/getReturnObj";
 import session from "../function/session/session";
 
 const router = express.Router();
+const salt = "woowa";
 
 /* GET users listing. */
 router.get("/", (req, res) => {
@@ -42,7 +43,12 @@ router.post("/", (req, res, next) => {
 
 router.post("/", (req, res) => {
   const { id, password } = req.body;
-  const retObj = login(id, password);
+  const encryptedPassword = crypto
+    .createHash("sha512")
+    .update(password + salt)
+    .digest("hex");
+
+  const retObj = login(id, encryptedPassword);
 
   if (!retObj.isSuccess) {
     res.send(retObj);
