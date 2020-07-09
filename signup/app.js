@@ -1,9 +1,10 @@
-import createError from "http-errors";
 import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
+
 import initializeDb from "./db/dbInitializor";
+import session from "./function/session/session";
 
 const indexRouter = require("./routes/index");
 const completeRouter = require("./routes/complete");
@@ -26,13 +27,25 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "function")));
+
+app.get("/", (req, res, next) => {
+  const { sessionKey } = req.cookies;
+
+  if (sessionKey === undefined) {
+    next();
+    return;
+  }
+  session.checkSession(sessionKey);
+  next();
+});
+
 app.use("/", indexRouter);
 app.use("/complete", completeRouter);
 app.use("/login", loginRouter);
 app.use("/signup", signupRouter);
 
 // catch 404 and forward to error handler
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.render("404.html");
 });
 

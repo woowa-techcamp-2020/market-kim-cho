@@ -28,6 +28,10 @@ function checkSession(sessionKey) {
   const now = new Date().getTime();
   const session = db.get("session").find({ key: sessionKey }).value();
 
+  if (session === undefined) {
+    return false;
+  }
+
   if (session.time + 5 * 60 * 1000 < now) {
     db.get("session").find({ key: sessionKey }).write();
     return false;
