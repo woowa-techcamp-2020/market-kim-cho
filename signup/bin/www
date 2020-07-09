@@ -8,6 +8,10 @@ const app = require("../app");
 const debug = require("debug")("signup:server");
 const http = require("http");
 
+const sessionManager = require("../function/session/sessionManager");
+
+sessionManager.startDetect();
+
 /**
  * Get port from environment and store in Express.
  */
