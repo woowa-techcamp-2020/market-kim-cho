@@ -1,3 +1,5 @@
+let timerId = null;
+
 function changeDomain(target) {
   const { value } = target;
   const domainEl = document.getElementById("domain_etc");
@@ -22,11 +24,13 @@ function formatTime(sec) {
 function setTimer(target) {
   let time = 10;
   const timer = target;
+  if (timerId !== null) clearInterval(timerId);
   return new Promise((resolve) => {
-    const timerId = setInterval(() => {
+    timerId = setInterval(() => {
       timer.innerText = formatTime(time);
       if (time === 0) {
         clearInterval(timerId);
+        timerId = null;
         resolve(time);
       }
       time -= 1;
