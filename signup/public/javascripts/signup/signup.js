@@ -1,5 +1,5 @@
 function signup(userInfo) {
-  fetch("http://localhost:3000/signup", {
+  fetch("/signup", {
     method: "POST",
     body: JSON.stringify(userInfo),
     headers: {
@@ -8,8 +8,13 @@ function signup(userInfo) {
     },
   })
     .then((res) => res.json())
-    .then((json) => {
-      console.log(json);
+    .then((res) => {
+      if (res.isSuccess) {
+        const { id, name, email, phone } = res.data.userObj;
+        window.location.href = `/complete?id=${id}&name=${name}&email=${email}&phone=${phone}`;
+      } else {
+        console.log("error");
+      }
     });
 }
 

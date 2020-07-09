@@ -184,7 +184,9 @@
                   class="input_left"
                   placeholder="우편번호"
                 />
-                <button class="btn_right" type="button">주소찾기</button>
+                <button class="btn_right" type="button" id="find_address">
+                  주소찾기
+                </button>
               </div>
               <div class="form_row">
                 <input
@@ -286,6 +288,11 @@
         </form>
       </div>
     </div>
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script type="module" src="/javascripts/signup/index.js"></script>
+    <script
+      type="text/javascript"
+      src="/javascripts/signup/address.js"
+    ></script>
   </body>
 </html>

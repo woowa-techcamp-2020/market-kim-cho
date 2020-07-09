@@ -1,4 +1,5 @@
 import express from "express";
+import crypto from "crypto";
 
 import idValidator from "../function/validator/idValidator";
 import passwordValidator from "../function/validator/passwordValidator";
@@ -12,6 +13,10 @@ import getReturnObj from "../function/signup/getReturnObj";
 import signup from "../function/signup/signup";
 
 const router = express.Router();
+
+require("dotenv").config();
+
+const salt = `${process.env.ACCOUNT_SALT}`;
 
 /* GET users listing. */
 router.get("/", (req, res) => {
@@ -135,13 +140,29 @@ router.post("/", (req, res, next) => {
 
 // save user infomation
 router.post("/", (req, res) => {
-  const {
-    id, password, email, name, phone,
-  } = req.body;
+  const { id, password, email, name, phone } = req.body;
+  const retObj = getReturnObj();
 
-  const userObj = signup(id, password, email, name, phone);
+  const encryptedPassword = crypto
+    .createHash("sha512")
+    .update(password + salt)
+    .digest("hex");
 
-  res.send(userObj);
+  if (isDuplicated(id)) {
+    retObj.isSuccess = false;
+    retObj.data.errorPoint = "id";
+    retObj.data.errorDetail = "duplicated";
+
+    res.send(retObj);
+    return;
+  }
+
+  const userObj = signup(id, encryptedPassword, email, name, phone);
+  retObj.isSuccess = true;
+  retObj.data.userObj = userObj;
+  retObj.data.userObj.password = undefined;
+
+  res.send(retObj);
 });
 
 module.exports = router;

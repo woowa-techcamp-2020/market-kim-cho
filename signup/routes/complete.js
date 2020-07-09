@@ -4,7 +4,19 @@ const router = express.Router();
 
 /* GET users listing. */
 router.get("/", (req, res) => {
-  res.render("complete.html");
+  let { name, id, email, phone } = req.query;
+
+  name = !name ? "name error" : name;
+  id = !id ? "id error" : id;
+  email = !email ? "email error" : email;
+  phone = !phone ? "phone error" : phone;
+
+  res.render("complete.ejs", {
+    name,
+    id,
+    email,
+    phone,
+  });
 });
 
 module.exports = router;

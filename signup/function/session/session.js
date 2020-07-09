@@ -1,8 +1,9 @@
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 
-const adapter = new FileSync("./db/db.json");
-const db = low(adapter);
+require("dotenv").config();
+
+const limitMinute = parseInt(`${process.env.SESSION_EXPIRE_MIN}`);
 
 /**
  * 로그인 시 session을 저장하는 함수
@@ -10,6 +11,9 @@ const db = low(adapter);
  * @param {string} id
  */
 function setSession(sessionKey, id) {
+  const adapter = new FileSync("./db/db.json");
+  const db = low(adapter);
+
   if (sessionKey === "" || typeof sessionKey !== "string") return false;
 
   const now = new Date().getTime();
@@ -23,13 +27,19 @@ function setSession(sessionKey, id) {
  * @param {string} sessionKey
  */
 function checkSession(sessionKey) {
+  const adapter = new FileSync("./db/db.json");
+  const db = low(adapter);
+
   if (sessionKey === "" || typeof sessionKey !== "string") return false;
 
   const now = new Date().getTime();
   const session = db.get("session").find({ key: sessionKey }).value();
 
-  if (session.time + 5 * 60 * 1000 < now) {
-    db.get("session").find({ key: sessionKey }).write();
+  if (session === undefined) {
+    return false;
+  }
+
+  if (session.time + limitMinute * 60 * 1000 < now) {
     return false;
   }
 
@@ -41,6 +51,9 @@ function checkSession(sessionKey) {
  * @param {string} sessionKey
  */
 function getUserBySession(sessionKey) {
+  const adapter = new FileSync("./db/db.json");
+  const db = low(adapter);
+
   if (sessionKey === "" || typeof sessionKey !== "string") return undefined;
 
   const session = db.get("session").find({ key: sessionKey }).value();

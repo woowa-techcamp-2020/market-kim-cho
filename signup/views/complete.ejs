@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/complete.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/background.css" />
+    <link rel="stylesheet" href="/stylesheets/logo.css" />
+    <title>회원가입완료</title>
+  </head>
+  <body>
+    <form class="wrap">
+      <section class="logo">
+        <img src="/image/logo.png" alt="logo" />
+      </section>
+      <hr />
+      <section class="content">
+        <h2>회원가입이 완료되었습니다.</h2>
+        <table>
+          <thead>
+            <tr>
+              <td class="key">이름</td>
+              <td class="value"><%= name %></td>
+            </tr>
+            <tr>
+              <td class="key">아이디</td>
+              <td class="value"><%= id %></td>
+            </tr>
+            <tr>
+              <td class="key">이메일</td>
+              <td class="value"><%= email %></td>
+            </tr>
+            <tr>
+              <td class="key">휴대폰</td>
+              <td class="value"><%= phone %></td>
+            </tr>
+          </thead>
+        </table>
+        <p>위치관련 정보는 내 정보 보기에서 확인할 수 있습니다.</p>
+      </section>
+      <hr />
+      <section class="goto_main">
+        <a href="/">메인으로 돌아가기 </a>
+      </section>
+    </form>
+  </body>
+</html>

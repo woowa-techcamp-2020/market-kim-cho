@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-height: 800px) {
+  body {
+    margin: 0;
+    height: 800px;
+    width: 100%;
+  }
+}
+
+form.wrap {
+  width: 400px;
+  padding: 10px 25px;
+  background-color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border: 1px solid #000000;
+  border-radius: 20px;
+}
+
+form.wrap hr {
+  width: inherit;
+  color: #000000;
+}
+
+form.wrap section {
+  margin: 20px 0 10px 0;
+  width: inherit;
+}
+
+form.wrap section.content table .key {
+  width: 100px;
+  text-align: center;
+}
+
+form.wrap section.content {
+  text-align: center;
+}
+
+form.wrap section.content table {
+  margin: 20px auto 20px auto;
+  width: calc(100% - 20px);
+}
+
+form.wrap section.content h2 {
+  margin: 10px;
+}
+
+form.wrap section.content p {
+  margin: 10px;
+}
+
+form.wrap section.goto_main {
+  text-align: center;
+}
+
+form.wrap section.goto_main a {
+  font-size: 1.2rem;
+  text-decoration: underline;
+  color: #000000;
+}
