@@ -3,6 +3,8 @@ import * as validator from "/javascripts/signup//validator.js";
 import retrieveValue from "./retrieveValue.js";
 import { elRetype } from "./elementObj.js";
 import { signup } from "./signup.js";
+import validateAll from "./validateAll.js";
+import { validateDomain } from "./validator.js";
 
 export default function addEventListener() {
   elementObj.elId.addEventListener("blur", (e) => {
@@ -41,6 +43,6 @@ export default function addEventListener() {
   });
 
   elementObj.elSignup.addEventListener("click", () => {
-    signup(retrieveValue());
+    if (validateAll()) signup(retrieveValue());
   });
 }

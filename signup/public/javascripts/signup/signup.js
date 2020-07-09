@@ -1,5 +1,4 @@
 function signup(userInfo) {
-  console.log(JSON.stringify(userInfo));
   fetch("http://localhost:3000/signup", {
     method: "POST",
     body: JSON.stringify(userInfo),
