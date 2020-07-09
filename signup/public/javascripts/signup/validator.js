@@ -11,9 +11,7 @@ function retypePwValidator(retypePW) {
   return pw === retypePW;
 }
 
-const elId = document.getElementById("userId");
-elId.addEventListener("blur", (e) => {
-  const { target } = e;
+function validateId(target) {
   const { value } = target;
   let msg = "";
   let state = "error";
@@ -34,11 +32,9 @@ elId.addEventListener("blur", (e) => {
     infoEl.classList.remove("error");
   }
   infoEl.classList.add(state);
-});
+}
 
-const elPW = document.getElementById("userPW");
-elPW.addEventListener("blur", (e) => {
-  const { target } = e;
+function validatePassword(target) {
   const { value } = target;
   let msg = "";
   let error = true;
@@ -59,11 +55,9 @@ elPW.addEventListener("blur", (e) => {
     target.classList.remove("error_input");
     infoEl.classList.remove("error");
   }
-});
+}
 
-const elRetype = document.getElementById("retypePW");
-elRetype.addEventListener("blur", (e) => {
-  const { target } = e;
+function validateRetype(target) {
   const { value } = target;
   let msg = "";
   let error = true;
@@ -84,11 +78,9 @@ elRetype.addEventListener("blur", (e) => {
     target.classList.remove("error_input");
     infoEl.classList.remove("error");
   }
-});
+}
 
-const elEmail = document.getElementById("email");
-elEmail.addEventListener("blur", (e) => {
-  const { target } = e;
+function validateEmail(target) {
   const { value } = target;
   let msg = "";
   let error = true;
@@ -107,11 +99,9 @@ elEmail.addEventListener("blur", (e) => {
     target.classList.remove("error_input");
     infoEl.classList.remove("error");
   }
-});
+}
 
-const elDomain = document.getElementById("domain_etc");
-elDomain.addEventListener("blur", (e) => {
-  const { target } = e;
+function validateDomain(target) {
   const { value } = target;
   let msg = "";
   let error = true;
@@ -133,21 +123,17 @@ elDomain.addEventListener("blur", (e) => {
     target.classList.remove("error_input");
     infoEl.classList.remove("error");
   }
-});
+}
 
-const elSelectDomain = document.getElementById("domain");
-elSelectDomain.addEventListener("change", (e) => {
-  const { target } = e;
+function changeDomain(target) {
   const { value } = target;
   const domainEl = document.getElementById("domain_etc");
   if (value === "etc") {
     domainEl.removeAttribute("disabled");
   } else domainEl.value = value;
-});
+}
 
-const elName = document.getElementById("name");
-elName.addEventListener("blur", (e) => {
-  const { target } = e;
+function validateName(target) {
   const { value } = target;
   let msg = "";
   let error = true;
@@ -168,11 +154,9 @@ elName.addEventListener("blur", (e) => {
     target.classList.remove("error_input");
     infoEl.classList.remove("error");
   }
-});
+}
 
-const elPhone = document.getElementById("phone");
-elPhone.addEventListener("blur", (e) => {
-  const { target } = e;
+function validatePhone(target) {
   const { value } = target;
   let msg = "";
   let error = true;
@@ -196,11 +180,21 @@ elPhone.addEventListener("blur", (e) => {
     infoEl.classList.remove("error");
     btnRight.classList.add("btn_act");
   }
-});
+}
 
-const elOptionInfo = document.getElementById("option_check");
-elOptionInfo.addEventListener("click", (e) => {
-  const { target } = e;
+function checkOptionAgreement(target) {
   const elSection = target.closest(".section");
   elSection.classList.toggle("disabled");
-});
+}
+
+export {
+  validateId,
+  validatePassword,
+  validateRetype,
+  validateEmail,
+  validateDomain,
+  changeDomain,
+  validateName,
+  validatePhone,
+  checkOptionAgreement,
+};
