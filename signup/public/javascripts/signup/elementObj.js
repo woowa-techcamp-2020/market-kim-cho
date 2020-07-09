@@ -14,7 +14,7 @@ const elAddressDetail = document.getElementById("address_detail");
 const elAgreeAll = document.getElementById("agree_all");
 const elAgreeRequired = document.getElementById("agree_required");
 const elAgreeAdv = document.getElementById("agree_adv");
-
+const elVerification = document.getElementById("btn_verification");
 export {
   elId,
   elPW,
@@ -32,4 +32,5 @@ export {
   elAgreeAll,
   elAgreeRequired,
   elAgreeAdv,
+  elVerification,
 };

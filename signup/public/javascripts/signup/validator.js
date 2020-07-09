@@ -187,6 +187,10 @@ function checkOptionAgreement(target) {
   elSection.classList.toggle("disabled");
 }
 
+function getVerificationCode(target) {
+  target.closest(".section").classList.add("on_verification");
+}
+
 export {
   validateId,
   validatePassword,
@@ -197,4 +201,5 @@ export {
   validateName,
   validatePhone,
   checkOptionAgreement,
+  getVerificationCode,
 };

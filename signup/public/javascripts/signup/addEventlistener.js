@@ -2,8 +2,7 @@ import * as elementObj from "/javascripts/signup/elementObj.js";
 import * as validator from "/javascripts/signup//validator.js";
 import retrieveValue from "./retrieveValue.js";
 import { elRetype } from "./elementObj.js";
-import { signup } from "./signup.js";
-import validateAll from "./validateAll.js";
+import { signup, validateAll, existError } from "./signup.js";
 import { validateDomain } from "./validator.js";
 
 export default function addEventListener() {
@@ -43,6 +42,11 @@ export default function addEventListener() {
   });
 
   elementObj.elSignup.addEventListener("click", () => {
-    if (validateAll()) signup(retrieveValue());
+    validateAll();
+    if (!existError()) signup(retrieveValue());
+  });
+
+  elementObj.elVerification.addEventListener("click", (e) => {
+    if (!existError()) validator.getVerificationCode(e.target);
   });
 }

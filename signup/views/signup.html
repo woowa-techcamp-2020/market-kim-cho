@@ -117,10 +117,19 @@
                     class="input_left"
                     placeholder="휴대폰*"
                   />
-                  <button class="btn_right" type="button">인증받기</button>
+                  <button class="btn_right" type="button" id="btn_verification">인증받기</button>
                 </div>
                 <p class="msg_error">
                   전화번호를 입력해 주세요.
+                </p>
+              </div>
+              <div class="form_row hidden_form">
+                <div class="flex_wrap">
+                  <input type="text" name="verification_code" value="" id="verification_code" class="input_left" placeholder="인증번호 6자리 입력" />
+                  <button class="btn_right" type="button">확인</button>
+                  <span class="timer">01:00</span>
+                </div>
+                <p class="msg_error">
                 </p>
               </div>
               <ul class="form_row">
