@@ -76,11 +76,11 @@ html(lang="ko")
                 a.info(href="/#/policy/history?position=collectionAndUsageNormal")
                   | 내용보기
               .form_row.flex_wrap
-                input#postnumber.input_left(type="text" name="postnumber" value="" placeholder="우편번호")
+                input#postnumber.input_left(type="text" name="postnumber" value="" placeholder="우편번호" disabled="")
                 button#find_address.btn_right(type="button")
                   | 주소찾기
               .form_row
-                input#address.input_txt(type="text" name="address" value="" placeholder="주소*")
+                input#address.input_txt(type="text" name="address" value="" placeholder="주소*" disabled="")
                 p.msg_error
                   | 주소를 입력해 주세요.
               .form_row
