@@ -12,13 +12,6 @@
 
 html {
   width: 100%;
-  height: 100%;
-}
-
-@media screen and (max-height: 870px) {
-  html {
-    height: 870px;
-  }
 }
 
 body {
@@ -26,10 +19,16 @@ body {
   height: inherit;
   display: flex;
   justify-content: center;
-  align-items: center;
+}
+.header {
+  margin: 30px 0;
 }
 .wrap {
-  width: 328px;
+  width: 335px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .input_txt {
   width: 325px;
@@ -80,9 +79,11 @@ body {
 .info {
   font-size: 12px;
   color: #898989;
+  margin-left: 5px;
 }
 .checkbox {
   display: inline-block;
+  margin: 5px;
   width: 22px;
   height: 22px;
   background-image: url("/image/ico_checkbox_off.png");
@@ -93,8 +94,6 @@ input[type="checkbox"]:checked + .checkbox {
   background-image: url("/image/ico_checkbox_on.png");
 }
 .check_wrap {
-  margin-right: 25px;
-  display: inline-block;
   margin-bottom: 3px;
 }
 .desc_option {
@@ -141,4 +140,61 @@ input[type="checkbox"]:checked + .checkbox {
   position: absolute;
   right: 35%;
   color: #f52926;
+}
+
+.option_info {
+  font-size: 16px;
+  line-height: 25px;
+  color: #212329;
+  margin: 5px;
+}
+
+.terms_wrap {
+  padding-left: 40px;
+}
+
+.modalOn .modal_back,
+.modalOn .modal_info {
+  display: block;
+}
+
+.modal_back {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 10;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.7;
+  display: none;
+}
+
+.modal_info {
+  z-index: 15;
+  width: 300px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  display: none;
+}
+
+.modal_content {
+  line-height: 25px;
+  padding: 27px 25px 25px;
+}
+
+.btn_modal {
+  line-height: 25px;
+  width: 100%;
+  padding: 14px 0 13px;
+  border-top: 1px solid #979797;
+}
+
+#under_age {
+  text-decoration: underline;
+  cursor: pointer;
 }

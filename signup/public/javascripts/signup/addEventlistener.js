@@ -9,6 +9,8 @@ import {
   getVerificationCode,
   checkAgreeAll,
   checkAgree,
+  setModal,
+  closeModal,
 } from "./action.js";
 
 function validateAll() {
@@ -69,8 +71,12 @@ export default function addEventListener() {
 
   elementObj.elVerification.addEventListener("click", (e) => {
     validator.validatePhone(elementObj.elPhone);
-    if (!existError()) {
+    if (!elementObj.elPhoneError.classList.contains("error")) {
       getVerificationCode(e.target, elementObj.elTimer);
+      setModal(
+        elementObj.elModalInfo,
+        "인증번호를 발송했습니다.휴대폰 SMS 발송된 인증번호를 확인해 주세요."
+      );
     }
   });
   elementObj.elAgreeAll.addEventListener("change", (e) => {
@@ -84,5 +90,17 @@ export default function addEventListener() {
   });
   elementObj.elAgreeAdv.addEventListener("change", (e) => {
     checkAgree(e.target, elementObj.elAgreeAll);
+  });
+  elementObj.elBtnModal.addEventListener("click", () => {
+    closeModal(elementObj.elModalInfo);
+  });
+  elementObj.elModalBack.addEventListener("click", () => {
+    closeModal(elementObj.elModalInfo);
+  });
+  elementObj.elUnderAge.addEventListener("click", () => {
+    setModal(
+      elementObj.elModalInfo,
+      "정보통신망 이용촉진 및 정보보호 등에 관한 법률에서는 만 14세 미만 아동의 개인정보 수집 시 법정대리인 동의를 받도록 규정하고 있으며, 만 14세 미만 아동이 법정대리인 동의없이 회원가입을 하는 경우 회원탈퇴 또는 서비스 이용이 제한 될 수 있습니다."
+    );
   });
 }

@@ -16,6 +16,11 @@ const elAgreeRequired = document.getElementById("agree_required");
 const elAgreeAdv = document.getElementById("agree_adv");
 const elVerification = document.getElementById("btn_verification");
 const elTimer = document.getElementById("timer");
+const elModalBack = document.getElementById("modal_back");
+const elModalInfo = document.getElementById("modal_info");
+const elPhoneError = document.getElementById("phone_error");
+const elBtnModal = document.getElementById("btn_modal");
+const elUnderAge = document.getElementById("under_age");
 export {
   elId,
   elPW,
@@ -35,4 +40,9 @@ export {
   elAgreeAdv,
   elVerification,
   elTimer,
+  elModalBack,
+  elModalInfo,
+  elPhoneError,
+  elBtnModal,
+  elUnderAge,
 };

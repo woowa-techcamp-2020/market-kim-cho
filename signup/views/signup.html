@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/resetcss.css" />
     <link rel="stylesheet" href="/stylesheets/signup.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/background.css" />
     <title>회원가입</title>
   </head>
   <body>
     <div class="wrap">
       <div class="header">
-        <h1>배민사장님광장</h1>
+        <img src="/image/logo.png" alt="logo" width="328" />
       </div>
       <div class="content">
         <form>
           <fieldset class="fieldset">
             <legend class="blind">필수정보</legend>
             <div class="section">
-              <strong class="title_field">필수정보를 입력해주세요.</strong>
+              <p class="option_info">필수정보를 입력해주세요.</p>
               <div class="form_row">
                 <input
                   type="text"
@@ -121,7 +122,7 @@
                     인증받기
                   </button>
                 </div>
-                <p class="msg_error">
+                <p class="msg_error" id="phone_error">
                   전화번호를 입력해 주세요.
                 </p>
               </div>
@@ -241,12 +242,20 @@
                 <label class="desc_option" for="agree_required"
                   >필수 항목에 동의합니다.</label
                 >
-                <a
-                  href="/#/policy/history?position=collectionAndUsageNormal"
-                  class="info"
-                >
-                  내용보기
-                </a>
+                <div class="terms_wrap">
+                  <a
+                    href="https://ceo.baemin.com/#/policy/history?position=terms"
+                    class="info"
+                  >
+                    배민사장님광장 이용약관
+                  </a>
+                  <a
+                    href="https://ceo.baemin.com/#/policy/history?position=collectionAndUsageNormal"
+                    class="info"
+                  >
+                    개인정보 수집이용 동의
+                  </a>
+                </div>
               </div>
               <div class="check_wrap">
                 <input
@@ -260,22 +269,19 @@
                 <label for="agree_adv" class="desc_option"
                   >광고성 정보 수신 동의 (선택)</label
                 >
-                <a
-                  href="/#/policy/history?position=collectionAndUsageNormal"
-                  class="info"
-                >
-                  내용보기
-                </a>
+                <div class="terms_wrap">
+                  <p class="info">
+                    배민사장님광장 회원에게 제공하는 서비스의 광고성 정보를
+                    수신합니다.
+                  </p>
+                </div>
               </div>
               <div class="form_row">
                 <p class="info">
                   만 14세 이상 회원만 가입 가능합니다.
-                  <a
-                    href="/#/policy/history?position=collectionAndUsageNormal"
-                    class="info"
-                  >
+                  <span id="under_age" class="info">
                     내용보기
-                  </a>
+                  </span>
                 </p>
               </div>
               <div class="form_row">
@@ -286,6 +292,13 @@
             </div>
           </fieldset>
         </form>
+      </div>
+      <div class="modal_back" id="modal_back"></div>
+      <div class="modal_info" id="modal_info">
+        <div id="modal_content" class="modal_content">
+          <p></p>
+        </div>
+        <button type="button" id="btn_modal" class="btn_modal">확인</button>
       </div>
     </div>
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
