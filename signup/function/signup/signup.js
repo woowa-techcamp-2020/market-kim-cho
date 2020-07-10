@@ -9,7 +9,17 @@ import FileSync from "lowdb/adapters/FileSync";
  * @param {string} name 이름
  * @param {string} phone 전화번호
  */
-export default function signup(id, password, email, name, phone) {
+export default function signup(
+  id,
+  password,
+  email,
+  name,
+  phone,
+  postNumber,
+  address,
+  detailAddress,
+  agreeAdvertise
+) {
   const adapter = new FileSync("./db/db.json");
   const db = low(adapter);
 
@@ -19,6 +29,10 @@ export default function signup(id, password, email, name, phone) {
     email,
     name,
     phone,
+    postNumber,
+    address,
+    detailAddress,
+    agreeAdvertise,
   };
 
   db.get("users").push(userObj).write();
