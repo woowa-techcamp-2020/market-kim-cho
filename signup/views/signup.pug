@@ -1,0 +1,128 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="/stylesheets/resetcss.css")
+    link(rel="stylesheet" href="/stylesheets/signup.css")
+    link(rel="stylesheet" type="text/css" href="/stylesheets/background.css")
+    title 회원가입
+  body
+    .wrap
+      .header
+        img(src="/image/logo.png" alt="logo" width="328")
+      .content
+        form
+          fieldset.fieldset
+            legend.blind 필수정보
+            .section
+              p.option_info 필수정보를 입력해주세요.
+              .form_row
+                input#userId.input_txt(type="text" name="userId" value="" placeholder="아이디* (4~20자)")
+                p.msg_error
+                  | 아이디를 입력해 주세요.
+              .form_row
+                input#userPW.input_txt(type="password" name="userPW" value="" placeholder="비밀번호* (영문+숫자, 8~20자)")
+                p.msg_error
+                  | 비밀번호를 입력해 주세요.
+              .form_row
+                input#retypePW.input_txt(type="password" name="retypePW" value="" placeholder="비밀번호 재확인*")
+                p.msg_error
+                  | 비밀번호 확인을 위해 한번 더 입력해 주세요.
+              .form_row
+                .flex_wrap
+                  input#email.input_email(type="text" name="email" value="" placeholder="이메일 앞자리*")
+                  span.email_at @
+                  input#domain_etc.input_email(type="text" name="domain_etc" value="" placeholder="이메일 뒷자리*" disabled="")
+                p.msg_error
+                  | 이메일 주소를 입력해 주세요.
+              #mail_domain.form_row
+                select#domain.input_txt
+                  option(value="noSelected" selected="" disabled="") 이메일 선택
+                  option(value="naver.com") naver.com
+                  option(value="hanmail.net") hanmail.net
+                  option(value="nate.com") nate.com
+                  option(value="hotmail.com") hotmail.com
+                  option(value="etc") 직접입력
+              .form_row
+                input#name.input_txt(type="text" name="name" value="" placeholder="이름*")
+                p.msg_error
+                  | 이름을 입력해 주세요.
+              .form_row
+                .flex_wrap
+                  input#phone.input_left(type="text" name="phone" value="" placeholder="휴대폰*")
+                  button#btn_verification.btn_right(type="button")
+                    | 인증받기
+                p#phone_error.msg_error
+                  | 전화번호를 입력해 주세요.
+              .form_row.hidden_form
+                .flex_wrap
+                  input#verification_code.input_left(type="text" name="verification_code" value="" placeholder="인증번호 6자리 입력")
+                  button.btn_right(type="button") 확인
+                  span#timer.timer
+                p.msg_error
+              ul.form_row
+                li.info
+                  | 인증번호 전송은 통신사에 따라 최대 1분까지 소요될 수 있습니다.
+                li.info
+                  | 인증번호가 도착하지 않을 경우 '인증번호 재전송'을 눌러주세요.
+          fieldset
+            legend.blind 선택정보
+            .section.disabled
+              .check_wrap
+                input#option_info.blind(type="checkbox" name="status")
+                label#option_check.checkbox(for="option_info")
+                label.desc_option(for="option_info") 선택정보를 입력하시겠어요?
+                a.info(href="/#/policy/history?position=collectionAndUsageNormal")
+                  | 내용보기
+              .form_row.flex_wrap
+                input#postnumber.input_left(type="text" name="postnumber" value="" placeholder="우편번호")
+                button#find_address.btn_right(type="button")
+                  | 주소찾기
+              .form_row
+                input#address.input_txt(type="text" name="address" value="" placeholder="주소*")
+                p.msg_error
+                  | 주소를 입력해 주세요.
+              .form_row
+                input#address_detail.input_txt(type="text" name="address_detail" value="" placeholder="상세주소")
+                p.msg_error
+                  | 상세주소를 입력해 주세요.
+            .section
+              .check_wrap
+                input#agree_all.blind(type="checkbox" name="agree_all" value="agree_all")
+                label.checkbox(for="agree_all")
+                label.desc_option(for="agree_all")
+                  | 전체 약관에 동의합니다
+              .check_wrap
+                input#agree_required.blind(type="checkbox" name="agree_required" value="agree_required")
+                label.checkbox(for="agree_required")
+                label.desc_option(for="agree_required") 필수 항목에 동의합니다.
+                .terms_wrap
+                  a.info(href="https://ceo.baemin.com/#/policy/history?position=terms")
+                    | 배민사장님광장 이용약관
+                  a.info(href="https://ceo.baemin.com/#/policy/history?position=collectionAndUsageNormal")
+                    | 개인정보 수집이용 동의
+              .check_wrap
+                input#agree_adv.blind(type="checkbox" name="agree_adv" value="agree_adv")
+                label.checkbox(for="agree_adv")
+                label.desc_option(for="agree_adv") 광고성 정보 수신 동의 (선택)
+                .terms_wrap
+                  p.info
+                    | 배민사장님광장 회원에게 제공하는 서비스의 광고성 정보를
+                    | 수신합니다.
+              .form_row
+                p.info
+                  | 만 14세 이상 회원만 가입 가능합니다.
+                  span#under_age.info
+                    | 내용보기
+              .form_row
+                button#btn_signup.button_signup(type="button")
+                  | 가입완료
+      #modal_back.modal_back
+      #modal_info.modal_info
+        #modal_content.modal_content
+          p
+        button#btn_modal.btn_modal(type="button") 확인
+    script(src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js")
+    script(type="module" src="/javascripts/signup/index.js")
+    script(type="text/javascript" src="/javascripts/signup/address.js")

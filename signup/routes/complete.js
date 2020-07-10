@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
   email = !email ? "email error" : email;
   phone = !phone ? "phone error" : phone;
 
-  res.render("complete.ejs", {
+  res.render("complete", {
     name,
     id,
     email,

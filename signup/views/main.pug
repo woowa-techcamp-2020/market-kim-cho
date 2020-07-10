@@ -1,0 +1,23 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" type="text/css" href="/stylesheets/main.css")
+    link(rel="stylesheet" type="text/css" href="/stylesheets/background.css")
+    link(rel="stylesheet" href="/stylesheets/logo.css")
+    title 메인 페이지
+  body
+    .wrap
+      section.logo
+        img(src="./image/logo.png" alt="logo")
+      hr
+      section.welcome
+        h3 #{user}
+        p #{welcome}
+      section
+        button.btn_login 배민사장님광장 로그인
+      section.link
+        a(href="#") 아이디/비밀번호 찾기
+        a(href="/signup") 회원가입
+  script(type="text/javascript" src="/javascripts/index.js")

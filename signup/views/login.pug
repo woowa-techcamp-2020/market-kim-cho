@@ -1,0 +1,36 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="/stylesheets/login.css")
+    link(rel="stylesheet" type="text/css" href="/stylesheets/background.css")
+    link(rel="stylesheet" href="/stylesheets/logo.css")
+    title 로그인
+  body
+    form.login_form
+      section.logo
+        img(src="/image/logo.png" alt="logo")
+      hr
+      section.id
+        .text
+          span 아이디를 입력하세요
+          span.error_message 아이디가 올바르지 않습니다.
+        input#user_id(type="text")
+      section.password
+        .text
+          span 비밀번호를 입력하세요
+          span.error_message 비밀번호가 올바르지 않습니다.
+        input#user_pw(type="password")
+      .down_function
+        .checkbox
+          input(type="checkbox" name="saveId")
+          |  아이디 저장
+        .sign
+          span#find_account 아이디/비밀번호 찾기
+          span#signup
+            a(href="/signup") 회원 가입
+      section.login
+        button#btn_login(type="button")
+          | 로그인
+    script(type="module" src="/javascripts/login.js")
