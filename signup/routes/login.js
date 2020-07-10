@@ -14,8 +14,7 @@ const salt = `${process.env.ACCOUNT_SALT}`;
 
 /* GET users listing. */
 router.get("/", (req, res) => {
-  console.log("index");
-  res.render("login.html");
+  res.render("login");
 });
 
 router.post("/", (req, res, next) => {

@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
     const userInfo = session.getUserBySession(sessionKey);
 
     if (userInfo !== undefined) {
-      res.render("main.ejs", {
+      res.render("main", {
         user: `${userInfo.name}`,
         welcome: `님 어서오세요!`,
       });
