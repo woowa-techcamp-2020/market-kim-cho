@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
       return;
     }
   }
-  res.render("main.ejs", { user: `사장님`, welcome: `로그인해주세요` });
+  res.render("main", { user: `사장님`, welcome: `로그인해주세요` });
 });
 
 module.exports = router;
