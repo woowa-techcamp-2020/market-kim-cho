@@ -140,7 +140,17 @@ router.post("/", (req, res, next) => {
 
 // save user infomation
 router.post("/", (req, res) => {
-  const { id, password, email, name, phone } = req.body;
+  const {
+    id,
+    password,
+    email,
+    name,
+    phone,
+    postNumber,
+    address,
+    detailAddress,
+    agreeAdvertise,
+  } = req.body;
   const retObj = getReturnObj();
 
   const encryptedPassword = crypto
@@ -157,7 +167,17 @@ router.post("/", (req, res) => {
     return;
   }
 
-  const userObj = signup(id, encryptedPassword, email, name, phone);
+  const userObj = signup(
+    id,
+    encryptedPassword,
+    email,
+    name,
+    phone,
+    postNumber,
+    address,
+    detailAddress,
+    agreeAdvertise
+  );
   retObj.isSuccess = true;
   retObj.data.userObj = userObj;
   retObj.data.userObj.password = undefined;

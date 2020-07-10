@@ -16,8 +16,9 @@ class SessionManager {
   }
 
   checkOldSession(db) {
-    // const adapter = new FileSync("./db/db.json");
-    // const db = low(adapter);
+    if (db === undefined) {
+      return;
+    }
 
     const now = new Date().getTime();
 
@@ -36,8 +37,9 @@ class SessionManager {
   }
 
   delete(db) {
-    // const adapter = new FileSync("./db/db.json");
-    // const db = low(adapter);
+    if (db === undefined) {
+      return;
+    }
 
     if (this.queue.length === 0) {
       return false;
