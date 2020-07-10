@@ -1,7 +1,6 @@
 import * as elementObj from "/javascripts/signup/elementObj.js";
 import * as validator from "/javascripts/signup//validator.js";
 import retrieveValue from "./retrieveValue.js";
-import { elRetype } from "./elementObj.js";
 import { signup } from "./signup.js";
 import {
   changeDomain,
@@ -13,14 +12,30 @@ import {
   closeModal,
 } from "./action.js";
 
-function validateAll() {
-  validator.validateId(elementObj.elId);
-  validator.validatePassword(elementObj.elPW);
-  validator.validateRetype(elementObj.elRetype);
-  validator.validateEmail(elementObj.elEmail);
-  validator.validateDomain(elementObj.elDomain);
-  validator.validatePhone(elementObj.elPhone);
-  validator.validateName(elementObj.elName);
+async function validateAll() {
+  let focusTarget = null;
+  if (!(await validator.validateId(elementObj.elId))) {
+    if (!focusTarget) focusTarget = elementObj.elId;
+  }
+  if (!validator.validatePassword(elementObj.elPW)) {
+    if (!focusTarget) focusTarget = elementObj.elPW;
+  }
+  if (!validator.validateRetype(elementObj.elRetype)) {
+    if (!focusTarget) focusTarget = elementObj.elRetype;
+  }
+  if (!validator.validateEmail(elementObj.elEmail)) {
+    if (!focusTarget) focusTarget = elementObj.elEmail;
+  }
+  if (!validator.validateDomain(elementObj.elDomain)) {
+    if (!focusTarget) focusTarget = elementObj.elDomain;
+  }
+  if (!validator.validatePhone(elementObj.elPhone)) {
+    if (!focusTarget) focusTarget = elementObj.elPhone;
+  }
+  if (!validator.validateName(elementObj.elName)) {
+    if (!focusTarget) focusTarget = elementObj.elName;
+  }
+  if (focusTarget) focusTarget.focus();
 }
 
 function existError() {
@@ -34,7 +49,8 @@ export default function addEventListener() {
   });
   elementObj.elPW.addEventListener("blur", (e) => {
     validator.validatePassword(e.target);
-    if (elRetype.value.length > 0) validator.validateRetype(elRetype);
+    if (elementObj.elRetype.value.length > 0)
+      validator.validateRetype(elementObj.elRetype);
   });
   elementObj.elRetype.addEventListener("blur", (e) => {
     validator.validateRetype(e.target);
@@ -64,9 +80,16 @@ export default function addEventListener() {
     checkOptionAgreement(e.target);
   });
 
-  elementObj.elSignup.addEventListener("click", () => {
-    validateAll();
-    if (!existError()) signup(retrieveValue());
+  elementObj.elSignup.addEventListener("click", async () => {
+    await validateAll();
+    if (!existError()) {
+      if (!elementObj.elAgreeRequired.checked) {
+        setModal(
+          elementObj.elModalInfo,
+          "회원가입을 위해 필수약관에 동의해주세요."
+        );
+      } else signup(retrieveValue());
+    }
   });
 
   elementObj.elVerification.addEventListener("click", (e) => {
