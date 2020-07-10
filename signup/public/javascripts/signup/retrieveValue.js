@@ -3,14 +3,11 @@ import {
   elPW,
   elEmail,
   elDomain,
-  elSelectDomain,
   elName,
   elPhone,
-  elOptionInfo,
   elPostNumber,
   elAddress,
   elAddressDetail,
-  elAgreeRequired,
   elAgreeAdv,
 } from "/javascripts/signup/elementObj.js";
 
