@@ -1,3 +1,9 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .blind {
   visibility: hidden;
   overflow: hidden;
@@ -57,7 +63,7 @@ body {
   text-indent: 14px;
 }
 .input_left {
-  padding: 12px 0;
+  padding: 12px 30px 12px 0px;
   flex: 6;
   text-indent: 14px;
   margin-right: 5px;
@@ -154,7 +160,9 @@ input[type="checkbox"]:checked + .checkbox {
 }
 
 .modalOn .modal_back,
-.modalOn .modal_info {
+.mapOn .modal_back,
+.modalOn .modal_info,
+.mapOn .modal_map {
   display: block;
 }
 
@@ -185,6 +193,18 @@ input[type="checkbox"]:checked + .checkbox {
 .modal_content {
   line-height: 25px;
   padding: 27px 25px 25px;
+}
+
+.modal_map {
+  display: none;
+  z-index: 15;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  background-color: red;
 }
 
 .btn_modal {

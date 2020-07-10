@@ -8,7 +8,7 @@ html(lang="ko")
     link(rel="stylesheet" type="text/css" href="/stylesheets/background.css")
     title 회원가입
   body
-    .wrap
+    #wrap.wrap
       .header
         img(src="/image/logo.png" alt="logo" width="328")
       .content
@@ -50,14 +50,14 @@ html(lang="ko")
                   | 이름을 입력해 주세요.
               .form_row
                 .flex_wrap
-                  input#phone.input_left(type="text" name="phone" value="" placeholder="휴대폰*")
+                  input#phone.input_left(type="text" name="phone" value="" placeholder="휴대폰*" maxlength="13" size="13")
                   button#btn_verification.btn_right(type="button")
                     | 인증받기
                 p#phone_error.msg_error
                   | 전화번호를 입력해 주세요.
               .form_row.hidden_form
                 .flex_wrap
-                  input#verification_code.input_left(type="text" name="verification_code" value="" placeholder="인증번호 6자리 입력")
+                  input#verification_code.input_left(type="text" name="verification_code" value="" placeholder="인증번호 6자리 입력" maxlength="6" size="6")
                   button.btn_right(type="button") 확인
                   span#timer.timer
                 p.msg_error
@@ -73,7 +73,7 @@ html(lang="ko")
                 input#option_info.blind(type="checkbox" name="status")
                 label#option_check.checkbox(for="option_info")
                 label.desc_option(for="option_info") 선택정보를 입력하시겠어요?
-                a.info(href="/#/policy/history?position=collectionAndUsageNormal")
+                a.info(href="https://ceo.baemin.com/#/policy/history?position=collectionAndUsageNormal" target="_blank")
                   | 내용보기
               .form_row.flex_wrap
                 input#postnumber.input_left(type="text" name="postnumber" value="" placeholder="우편번호" disabled="")
@@ -98,9 +98,9 @@ html(lang="ko")
                 label.checkbox(for="agree_required")
                 label.desc_option(for="agree_required") 필수 항목에 동의합니다.
                 .terms_wrap
-                  a.info(href="https://ceo.baemin.com/#/policy/history?position=terms")
+                  a.info(href="https://ceo.baemin.com/#/policy/history?position=terms" target="_blank")
                     | 배민사장님광장 이용약관
-                  a.info(href="https://ceo.baemin.com/#/policy/history?position=collectionAndUsageNormal")
+                  a.info(href="https://ceo.baemin.com/#/policy/history?position=collectionAndUsageNormal" target="_blank")
                     | 개인정보 수집이용 동의
               .check_wrap
                 input#agree_adv.blind(type="checkbox" name="agree_adv" value="agree_adv")
@@ -123,6 +123,7 @@ html(lang="ko")
         #modal_content.modal_content
           p
         button#btn_modal.btn_modal(type="button") 확인
+      #modal_map.modal_map
     script(src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js")
     script(type="module" src="/javascripts/signup/index.js")
     script(type="text/javascript" src="/javascripts/signup/address.js")

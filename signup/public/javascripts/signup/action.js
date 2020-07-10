@@ -73,6 +73,7 @@ function setModal(modal, msg) {
 function closeModal(modal) {
   const parentEl = modal.parentElement;
   parentEl.classList.remove("modalOn");
+  parentEl.classList.remove("mapOn");
   modal.querySelector("p").innerText = "";
 }
 
